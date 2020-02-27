@@ -1,33 +1,33 @@
 {
-  "name": "nextjs-blog-starter",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Next.js",
-  "license": "MIT",
-  "version": "0.1.0",
-  "author": "@kendallstraut",
-  "scripts": {
-    "dev": "next src",
-    "develop": "yarn dev",
-    "build": "next build src",
-    "start": "next start src",
-    "export": "next export src",
-    "deploy": "yarn build && yarn export"
-  },
-  "dependencies": {
-    "next": "^9.0.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-markdown": "^4.1.0",
-    "webpack": "^4.37.0"
-  },
-  "devDependencies": {
-    "prettier": "^1.18.2"
-  },
-  "keywords": [
-    "nextjs"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kendallstrautman/nextjs-blog-starter"
-  }
+	"name": "tinacms-open-authoring",
+	"private": true,
+	"description": "A simple demo to demonstrate open authoring with TinaCMS & Next.js",
+	"license": "",
+	"version": "0.1.0",
+	"author": "@kendallstraut",
+	"scripts": {
+		"dev": "next",
+		"develop": "yarn dev",
+		"build": "next build ",
+		"start": "next start ",
+		"export": "next export ",
+		"deploy": "yarn build && yarn export"
+	},
+	"dependencies": {
+		"next": "9.2.3-canary.12",
+		"react": "^16.13.0",
+		"react-dom": "^16.13.0",
+		"react-markdown": "^4.3.1",
+		"webpack": "^4.41.6"
+	},
+	"devDependencies": {
+		"prettier": "^1.19.1"
+	},
+	"keywords": [
+		"nextjs"
+	],
+	"repository": {
+		"type": "git",
+		"url": ""
+	}
 }
