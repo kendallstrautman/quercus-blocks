@@ -33,6 +33,16 @@ export default function Layout(props) {
             }
           }
           @media (min-width: 1280px) {
+            div.content {
+              display: grid;
+              max-width: none;
+              padding: 0 var(--med);
+              grid-template-columns: repeat(4, 1fr);
+              grid-template-rows: auto;
+            }
+            div.content * {
+              padding: var(--med) 0;
+            }
           }
         `}
       </style>

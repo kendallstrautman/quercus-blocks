@@ -1,5 +1,25 @@
 export function Image({ data }) {
-  return <img src={data.src} />
+  return (
+    <>
+      <div>
+        <img src={data.src} />
+      </div>
+      <style jsx>{`
+        div {
+          grid-column-start: ${data.col_start};
+          grid-column-end: ${data.col_end};
+          grid-row-start: ${data.row};
+        }
+        img {
+          object-fit: cover;
+          width: 100%;
+          min-height: 100%;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+      `}</style>
+    </>
+  )
 }
 
 export const image_template = {

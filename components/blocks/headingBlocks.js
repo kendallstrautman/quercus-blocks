@@ -4,6 +4,9 @@ export function H1({ data }) {
       <h1>{data.text}</h1>
       <style jsx>{`
         h1 {
+          grid-column-start: ${data.col_start};
+          grid-column-end: ${data.col_end};
+          grid-row-start: ${data.row};
         }
       `}</style>
     </>
@@ -19,8 +22,8 @@ export const heading_1_template = {
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
     position: 'left',
     width: 'large',
-    'col-start': 1,
-    'col-end': 3,
+    col_start: 1,
+    col_end: 4,
   },
   key: undefined,
   // todo add fields here for position and width etc.
@@ -28,8 +31,21 @@ export const heading_1_template = {
 }
 
 export function H2({ data }) {
-  console.log(data)
-  return <h2>{data.text}</h2>
+  const colStart = data.col_start
+  const colEnd = data.col_end
+  const row = data.row
+  return (
+    <>
+      <h2>{data.text}</h2>{' '}
+      <style jsx>{`
+        h2 {
+          grid-column-start: ${colStart};
+          grid-column-end: ${colEnd};
+          grid-row-start: ${row};
+        }
+      `}</style>
+    </>
+  )
 }
 
 export const heading_2_template = {
@@ -41,8 +57,8 @@ export const heading_2_template = {
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
     position: 'center',
     width: 'medium',
-    'col-start': 2,
-    'col-end': 3,
+    col_start: 2,
+    col_end: 4,
   },
   key: undefined,
   // todo add fields here for position and width etc.

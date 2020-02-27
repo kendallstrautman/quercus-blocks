@@ -227,7 +227,7 @@ export default function Meta(props) {
             --sm: 12px;
             --med: 20px;
             --lrg: 48px;
-            --xl: 64px;
+            --xl: 88px;
           }
         `}
       </style>
