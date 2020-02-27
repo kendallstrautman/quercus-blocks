@@ -1,4 +1,4 @@
 node_modules
-src/.next
+.next
 .env
-src/out/
+out/
