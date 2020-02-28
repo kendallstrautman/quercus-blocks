@@ -28,7 +28,6 @@ export default function Nav(props) {
         <span className="navItems">
           <EditLink />
           <a onClick={handleOpenNav} className="info-link">
-            <p>Info</p>
             <Chevron />
           </a>
         </span>
@@ -64,7 +63,6 @@ export default function Nav(props) {
         }
         span.navItems {
           width: 100%;
-          padding: var(--sm);
           display: flex;
           justify-content: space-between;
           position: absolute;
@@ -76,16 +74,15 @@ export default function Nav(props) {
 
         .info-link {
           display: flex;
+          padding: var(--sm);
         }
-        .info-link p {
-          padding-right: var(--xs);
-        }
+
         @media (min-width: 1000px) {
           nav {
             height: 75vh;
             transform: translateY(calc(-75vh + 50px));
           }
-          span.navItems {
+          .info-link {
             padding: var(--sm) var(--med);
           }
         }
