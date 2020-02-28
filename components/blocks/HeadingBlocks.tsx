@@ -32,8 +32,20 @@ export const heading_1_template = {
     col_end: 4,
   },
   key: undefined,
-  // todo add fields here for position and width etc.
-  fields: [],
+  fields: [
+    {
+      name: 'col_start',
+      label: 'Column Start',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+    {
+      name: 'col_end',
+      label: 'Column End',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+  ],
 }
 
 export function H2({ data, index }) {
@@ -67,6 +79,18 @@ export const heading_2_template = {
     col_end: 4,
   },
   key: undefined,
-  // todo add fields here for position and width etc.
-  fields: [],
+  fields: [
+    {
+      name: 'col_start',
+      label: 'Column Start',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+    {
+      name: 'col_end',
+      label: 'Column End',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+  ],
 }

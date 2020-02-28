@@ -3,19 +3,17 @@
     {
       "_template": "heading_1",
       "text": "Wherever I sat, there I might live, and the landscape radiated from me accordingly.",
-      "width": "left",
-      "position": "large",
       "col_start": 1,
       "col_end": 4
     },
-    { "_template": "spacer", "row": 2 },
+    { "_template": "spacer" },
     {
       "_template": "body_copy",
       "text": "What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.",
       "col_start": 4,
       "col_end": 5
     },
-    { "_template": "spacer", "row": 4 },
+    { "_template": "spacer" },
     {
       "_template": "image",
       "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
@@ -29,7 +27,7 @@
       "col_start": 2,
       "col_end": 4
     },
-    { "_template": "spacer", "row": 7 },
+    { "_template": "spacer" },
     {
       "_template": "image",
       "src": "/img/charlota-blunarova-LV0N2drB_BI-unsplash__SM.jpg",
@@ -49,7 +47,7 @@
       "col_start": 2,
       "col_end": 4
     },
-    { "_template": "spacer", "row": 12 },
+    { "_template": "spacer" },
     {
       "_template": "image",
       "src": "/img/nathan-dumlao-_GN1A0CNnrk-unsplash__SM.jpg",

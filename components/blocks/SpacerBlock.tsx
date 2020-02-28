@@ -33,6 +33,6 @@ export const spacer_template = {
     _template: 'spacer',
   },
   key: undefined,
-  // todo add fields here for position and width etc.
+  // todo add fields here for sizing etc.
   fields: [],
 }

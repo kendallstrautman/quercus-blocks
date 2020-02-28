@@ -28,10 +28,22 @@ export const body_copy_template = {
     _template: 'body_copy',
     text:
       'What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.',
-    'col-start': 2,
-    'col-end': 3,
+    col_start: 2,
+    col_end: 3,
   },
   key: undefined,
-  // todo add fields here for position and width etc.
-  fields: [],
+  fields: [
+    {
+      name: 'col_start',
+      label: 'Column Start',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+    {
+      name: 'col_end',
+      label: 'Column End',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+  ],
 }

@@ -48,10 +48,22 @@ export const image_template = {
     src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
     position: 'right',
     width: 'large',
-    'col-start': 2,
-    'col-end': 4,
+    col_start: 2,
+    col_end: 4,
   },
   key: undefined,
-  // todo add fields here for position and width etc.
-  fields: [],
+  fields: [
+    {
+      name: 'col_start',
+      label: 'Column Start',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+    {
+      name: 'col_end',
+      label: 'Column End',
+      component: 'select',
+      options: [1, 2, 3, 4, 5],
+    },
+  ],
 }
