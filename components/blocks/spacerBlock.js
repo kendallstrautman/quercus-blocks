@@ -1,12 +1,17 @@
 export function Spacer({ data }) {
   return (
     <>
-      <div></div>
+      <div className="spacer"></div>
       <style jsx>{`
-        div {
-          height: var(--lrg);
+        div.spacer {
+          height: var(--med);
           grid-column: span 4;
           grid-column-row: ${data.row};
+        }
+        @media (min-width: 1280px) {
+          div.spacer {
+            height: var(--lrg);
+          }
         }
       `}</style>
     </>

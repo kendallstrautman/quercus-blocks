@@ -8,7 +8,7 @@ export default function Layout(props) {
         siteTitle={props.siteTitle}
         siteDescription={props.siteDescription}
       />
-      <Nav />
+      <Nav infoBlurb={props.infoBlurb} />
       <div className="content">{props.children}</div>
       <style jsx global>
         {`
@@ -18,24 +18,24 @@ export default function Layout(props) {
             flex-direction: column;
           }
           div.content {
-            padding: 5vh var(--sm) var(--sm) var(--sm);
+            padding: 75px var(--sm) var(--sm) var(--sm);
             width: 100%;
             max-width: 768px;
             margin: 0 auto;
           }
           div.content * {
-            padding: var(--med) 0;
+            padding: var(--sm) 0;
           }
           @media (min-width: 768px) {
             div.content {
-              padding: var(--sm);
+              padding: var(--xl) var(--med) var(--med) var(--med);
             }
           }
           @media (min-width: 1280px) {
             div.content {
               display: grid;
               max-width: none;
-              padding: 8vh var(--med) var(--med) var(--med);
+
               grid-template-columns: repeat(4, 1fr);
               grid-template-rows: auto;
             }

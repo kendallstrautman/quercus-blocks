@@ -1,7 +1,7 @@
 import React from 'react'
 import EditLink from './EditLink'
 
-export default function Nav() {
+export default function Nav(props) {
   const [isOpen, setIsOpen] = React.useState(false)
   function handleOpenNav(e) {
     e.preventDefault()
@@ -21,7 +21,10 @@ export default function Nav() {
   return (
     <>
       <nav>
-        <span className="nav-items">
+        <div className="infoBlurb">
+          <h2>{props.infoBlurb}</h2>
+        </div>
+        <span className="navItems">
           <EditLink />
           <a onClick={handleOpenNav} className="info-link">
             <p>Info</p>
@@ -40,12 +43,11 @@ export default function Nav() {
       <style jsx>{`
         nav {
           width: 100%;
-          border-bottom: 1px solid black;
-          height: 68vh;
-          position: absolute;
+          height: 100vh;
+          position: fixed;
           top: 0;
           background-color: white;
-          transform: translateY(-62vh);
+          transform: translateY(calc(-100vh + 50px));
           transition: transform 350ms ease-in-out;
         }
         nav.isOpen {
@@ -60,13 +62,29 @@ export default function Nav() {
           transform: rotate(-180deg);
           transition: transform 275ms ease;
         }
-        span.nav-items {
+        div.infoBlurb {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+        }
+        div.infoBlurb h2 {
+          color: var(--orange);
+          margin-top: -38px;
+          padding: 0 var(--med);
+          text-align: center;
+          max-width: 768px;
+        }
+        span.navItems {
           width: 100%;
           padding: var(--sm);
           display: flex;
           justify-content: space-between;
           position: absolute;
           bottom: 0;
+          border-top: 1px solid black;
+          border-bottom: 1px solid black;
         }
 
         .info-link {
@@ -74,6 +92,15 @@ export default function Nav() {
         }
         .info-link p {
           padding-right: var(--xs);
+        }
+        @media (min-width: 1280px) {
+          nav {
+            height: 75vh;
+            transform: translateY(calc(-75vh + 50px));
+          }
+          span.navItems {
+            padding: var(--sm) var(--med);
+          }
         }
       `}</style>
     </>

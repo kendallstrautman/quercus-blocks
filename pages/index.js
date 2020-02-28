@@ -7,6 +7,7 @@ const Index = props => {
       pathname="/"
       siteTitle={props.title}
       siteDescription={props.description}
+      infoBlurb={props.infoBlurb}
     >
       <Blocks data={props.blocks} />
     </Layout>

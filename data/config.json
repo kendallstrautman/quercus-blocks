@@ -1,5 +1,6 @@
 {
-    "title":"Site Title",
-    "description":"Starter for Next.js.",
-    "repositoryUrl":"https://github.com/kendallstrautman/nextjs-blog-starter"
+  "title": "Site Title",
+  "description": "Starter for Next.js.",
+  "repositoryUrl": "https://github.com/kendallstrautman/nextjs-blog-starter",
+  "infoBlurb": "This is a demo for TinaCMS open authoring. Click the ‘edit this page’ button to create a fork and edit the site live. This demo was made possible by the new Next.js preview feature, hosted on Now."
 }
