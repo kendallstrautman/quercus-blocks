@@ -1,4 +1,8 @@
 export default function EditLink() {
+  /*
+   ** TODO: toggle the emoji based on the edit context
+   ** from ✐ to ✗ ? for exit edit mode
+   */
   return (
     <>
       <p>

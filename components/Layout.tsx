@@ -1,5 +1,6 @@
 import Meta from './Meta'
 import Nav from './Nav'
+import Footer from './Footer'
 
 export default function Layout(props) {
   return (
@@ -10,6 +11,7 @@ export default function Layout(props) {
       />
       <Nav infoBlurb={props.infoBlurb} />
       <div className="content">{props.children}</div>
+      <Footer />
       <style jsx global>
         {`
           .layout {
@@ -35,7 +37,7 @@ export default function Layout(props) {
             div.content {
               display: grid;
               max-width: none;
-
+              padding: 88px var(--med) var(--med) var(--med);
               grid-template-columns: repeat(4, 1fr);
               grid-template-rows: auto;
             }
