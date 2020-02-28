@@ -12,10 +12,14 @@ export default function EditLink() {
         p {
           margin-bottom: 0;
           border-right: 1px solid black;
-          padding: padding: var(--sm);
+          padding: var(--sm);
+          color: inherit;
+          transition: all 250ms ease;
+          background-color: white;
+        }
+        a {
           color: inherit;
           transition: color 250ms ease;
-          background-color: white;
         }
         p:hover {
           background-color: var(--orange);
@@ -25,9 +29,9 @@ export default function EditLink() {
         a:hover {
           background-all: var(--orange);
           color: var(--seafoam);
-          transition: all 250ms ease;
+          transition: color 250ms ease;
         }
-        @media(min-width: 1000px) {
+        @media (min-width: 1000px) {
           p {
             padding: var(--sm) var(--med);
           }
