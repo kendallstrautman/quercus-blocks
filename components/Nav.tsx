@@ -48,14 +48,6 @@ export default function Nav(props) {
           transform: translateY(0);
           transition: transform 375ms ease;
         }
-        svg {
-          transform: rotate(0deg);
-          transition: transform 200ms ease;
-        }
-        svg.pointsUp {
-          transform: rotate(-180deg);
-          transition: transform 275ms ease;
-        }
         div.infoBlurb {
           display: flex;
           width: 100%;
