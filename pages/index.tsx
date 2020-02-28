@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import Blocks from '../components/Blocks'
+import IndexBlocks from '../components/IndexBlocks'
 
 const Index = props => {
   return (
@@ -9,7 +9,7 @@ const Index = props => {
       siteDescription={props.description}
       infoBlurb={props.infoBlurb}
     >
-      <Blocks data={props.blocks} />
+      <IndexBlocks jsonFile={props.jsonFile} />
     </Layout>
   )
 }
@@ -22,6 +22,9 @@ Index.getInitialProps = async function() {
 
   return {
     ...configData,
-    blocks: blocksData.default,
+    jsonFile: {
+      fileRelativePath: `data.blocks.json`,
+      data: blocksData.default,
+    },
   }
 }
