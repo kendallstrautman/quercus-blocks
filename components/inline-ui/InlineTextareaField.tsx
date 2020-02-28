@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { InlineField } from 'react-tinacms-inline'
 import styled from 'styled-components'
 import TextareaAutosize from 'react-textarea-autosize'
@@ -64,6 +64,7 @@ export const InlineTextarea = styled(({ ...styleProps }) => {
   word-wrap: break-word;
   display: block;
   font-size: inherit;
+  font-family: inherit;
   box-sizing: border-box;
   color: inherit;
   letter-spacing: inherit;

@@ -1,13 +1,20 @@
-export function Spacer({ data }) {
+import { BlocksControls } from '../inline-ui'
+
+export function Spacer({ data, index }) {
   // TODO: add dynamic spacer sizes
+  //TODO: add edit mode text to note that this is a spacer
   return (
     <>
-      <div className="spacer"></div>
+      <div className="spacer">
+        <BlocksControls index={index}>
+          <span></span>
+        </BlocksControls>
+      </div>
       <style jsx>{`
         div.spacer {
           height: var(--med);
           grid-column: span 4;
-          grid-column-row: ${data.row};
+          grid-column-row: ${index + 1};
         }
         @media (min-width: 1200px) {
           div.spacer {

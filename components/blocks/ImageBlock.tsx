@@ -14,9 +14,11 @@ export function Image({ data, index }) {
    ** TODO: Need inline image field here
    */
   return (
-    <BlocksControls index={index}>
+    <>
       <div>
-        <img src={data.src} />
+        <BlocksControls index={index}>
+          <img src={data.src} />
+        </BlocksControls>
       </div>
       <style jsx>{`
         div {
@@ -34,7 +36,7 @@ export function Image({ data, index }) {
           padding-bottom: 0;
         }
       `}</style>
-    </BlocksControls>
+    </>
   )
 }
 

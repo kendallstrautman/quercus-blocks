@@ -1,4 +1,4 @@
-import { BlockText } from 'react-tinacms-inline'
+import { BlockTextArea } from '../inline-ui'
 import { BlocksControls } from '../inline-ui'
 
 export function BodyCopy({ data, index }) {
@@ -6,7 +6,7 @@ export function BodyCopy({ data, index }) {
     <>
       <p>
         <BlocksControls index={index}>
-          <BlockText name="text" />
+          <BlockTextArea name="text" />
         </BlocksControls>
       </p>
 

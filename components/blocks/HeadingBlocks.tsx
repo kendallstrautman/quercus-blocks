@@ -1,4 +1,5 @@
-import { BlocksControls, BlockTextArea } from '../inline-ui'
+import { BlockTextArea } from '../inline-ui'
+import { BlocksControls } from '../inline-ui'
 
 export function H1({ data, index }) {
   return (
