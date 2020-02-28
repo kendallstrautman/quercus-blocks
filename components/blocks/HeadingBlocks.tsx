@@ -1,12 +1,19 @@
-export function H1({ data }) {
+import { BlocksControls, BlockTextArea } from '../inline-ui'
+
+export function H1({ data, index }) {
   return (
     <>
-      <h1>{data.text}</h1>
+      <h1>
+        <BlocksControls index={index}>
+          <BlockTextArea name="text" />
+        </BlocksControls>
+      </h1>
+
       <style jsx>{`
         h1 {
           grid-column-start: ${data.col_start};
           grid-column-end: ${data.col_end};
-          grid-row-start: ${data.row};
+          grid-row-start: ${index + 1};
         }
       `}</style>
     </>
@@ -20,8 +27,6 @@ export const heading_1_template = {
     _template: 'heading_1',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    position: 'left',
-    width: 'large',
     col_start: 1,
     col_end: 4,
   },
@@ -30,18 +35,20 @@ export const heading_1_template = {
   fields: [],
 }
 
-export function H2({ data }) {
-  const colStart = data.col_start
-  const colEnd = data.col_end
-  const row = data.row
+export function H2({ data, index }) {
   return (
     <>
-      <h2>{data.text}</h2>{' '}
+      <h2>
+        <BlocksControls index={index}>
+          <BlockTextArea name="text" />
+        </BlocksControls>
+      </h2>
+
       <style jsx>{`
         h2 {
-          grid-column-start: ${colStart};
-          grid-column-end: ${colEnd};
-          grid-row-start: ${row};
+          grid-column-start: ${data.col_start};
+          grid-column-end: ${data.col_end};
+          grid-row-start: ${index + 1};
         }
       `}</style>
     </>
@@ -55,8 +62,6 @@ export const heading_2_template = {
     _template: 'heading_2',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    position: 'center',
-    width: 'medium',
     col_start: 2,
     col_end: 4,
   },

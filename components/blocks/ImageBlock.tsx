@@ -1,6 +1,21 @@
-export function Image({ data }) {
+import { BlocksControls } from '../inline-ui'
+
+export function Image({ data, index }) {
+  function getWidth() {
+    const width =
+      (data.col_end === 5 || data.col_start === 1) && 'calc(100% + 20px)'
+    console.log('colstart', data.col_start)
+    return width
+  }
+  function getTranslateX() {
+    const translateX = data.col_start === 1 && 'translateX(-20px)'
+    return translateX
+  }
+  /*
+   ** TODO: Need inline image field here
+   */
   return (
-    <>
+    <BlocksControls index={index}>
       <div>
         <img src={data.src} />
       </div>
@@ -8,7 +23,9 @@ export function Image({ data }) {
         div {
           grid-column-start: ${data.col_start};
           grid-column-end: ${data.col_end};
-          grid-row-start: ${data.row};
+          grid-row-start: ${index + 1};
+          width: ${getWidth()};
+          transform: ${getTranslateX()};
         }
         img {
           object-fit: cover;
@@ -18,7 +35,7 @@ export function Image({ data }) {
           padding-bottom: 0;
         }
       `}</style>
-    </>
+    </BlocksControls>
   )
 }
 

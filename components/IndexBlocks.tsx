@@ -1,11 +1,6 @@
 import { useJsonForm } from 'next-tinacms-json'
 import { ModalProvider, BlockTemplate } from 'tinacms'
-import {
-  InlineForm,
-  InlineBlocks,
-  BlocksControls,
-  BlockText,
-} from 'react-tinacms-inline'
+import { InlineForm, InlineBlocks } from 'react-tinacms-inline'
 
 import {
   BodyCopy,
@@ -19,14 +14,11 @@ import {
   Spacer,
   spacer_template,
 } from './blocks'
-
 import { InlineControls, EditToggle, DiscardButton } from './inline-ui'
 
 export default function IndexBlocks({ jsonFile }) {
-  const _data = jsonFile.data.index_blocks
   const [data, form] = useJsonForm(jsonFile)
-  console.log('data', data)
-  console.log('form', form)
+
   return (
     <ModalProvider>
       <InlineForm form={form}>
@@ -34,6 +26,7 @@ export default function IndexBlocks({ jsonFile }) {
           <EditToggle />
           <DiscardButton />
         </InlineControls>
+        <InlineBlocks name="index_blocks" blocks={INDEX_PAGE_BLOCKS} />
       </InlineForm>
     </ModalProvider>
   )
@@ -61,11 +54,3 @@ export const INDEX_PAGE_BLOCKS = {
     template: spacer_template,
   },
 }
-
-/*
-    // <H1 data={_data[0]} />
-    // <Spacer data={_data[1]} />
-    // <BodyCopy data={_data[2]} />
-    // <Image data={_data[3]} />
-    // <H2 data={_data[4]} />
-*/
