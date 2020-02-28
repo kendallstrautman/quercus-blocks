@@ -18,7 +18,7 @@ export default function Layout(props) {
             flex-direction: column;
           }
           div.content {
-            padding: 75px var(--sm) var(--sm) var(--sm);
+            padding: var(--lrg) var(--sm) var(--sm) var(--sm);
             width: 100%;
             max-width: 768px;
             margin: 0 auto;
@@ -31,7 +31,7 @@ export default function Layout(props) {
               padding: var(--xl) var(--med) var(--med) var(--med);
             }
           }
-          @media (min-width: 1280px) {
+          @media (min-width: 1000px) {
             div.content {
               display: grid;
               max-width: none;

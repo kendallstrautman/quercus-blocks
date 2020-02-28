@@ -4,7 +4,6 @@ export function Image({ data, index }) {
   function getWidth() {
     const width =
       (data.col_end === 5 || data.col_start === 1) && 'calc(100% + 20px)'
-    console.log('colstart', data.col_start)
     return width
   }
   function getTranslateX() {

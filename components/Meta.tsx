@@ -198,11 +198,11 @@ export default function Meta(props) {
             line-height: 1.2;
           }
 
-          @media (min-width: 1280px) {
+          @media (min-width: 1200px) {
             h1 {
               font-size: 4.625rem;
               letter-spacing: -1px;
-              line-height: 1.1875;
+              line-height: 1.1;
             }
 
             h2 {
@@ -228,8 +228,9 @@ export default function Meta(props) {
             --sm: 12px;
             --med: 20px;
             --lrg: 48px;
-            --xl: 88px;
+            --xl: 74px;
             --orange: #ec4815;
+            --seafoam: #e6faf8;
           }
         `}
       </style>

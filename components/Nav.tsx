@@ -1,5 +1,6 @@
 import React from 'react'
 import EditLink from './EditLink'
+import Chevron from './icons/Chevron'
 
 export default function Nav(props) {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -28,15 +29,7 @@ export default function Nav(props) {
           <EditLink />
           <a onClick={handleOpenNav} className="info-link">
             <p>Info</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="chevron"
-            >
-              <path d="M16.293 9.293L12 13.586 7.707 9.293 6.293 10.707 12 16.414 17.707 10.707z" />
-            </svg>
+            <Chevron />
           </a>
         </span>
       </nav>
@@ -47,7 +40,7 @@ export default function Nav(props) {
           height: 100vh;
           position: fixed;
           top: 0;
-          background-color: white;
+          background-color: var(--orange);
           transform: translateY(calc(-100vh + 50px));
           transition: transform 350ms ease-in-out;
         }
@@ -71,7 +64,7 @@ export default function Nav(props) {
           align-items: center;
         }
         div.infoBlurb h2 {
-          color: var(--orange);
+          color: var(--seafoam);
           margin-top: -38px;
           padding: 0 var(--med);
           text-align: center;
@@ -86,6 +79,7 @@ export default function Nav(props) {
           bottom: 0;
           border-top: 1px solid black;
           border-bottom: 1px solid black;
+          background-color: white;
         }
 
         .info-link {
@@ -94,7 +88,7 @@ export default function Nav(props) {
         .info-link p {
           padding-right: var(--xs);
         }
-        @media (min-width: 1280px) {
+        @media (min-width: 1000px) {
           nav {
             height: 75vh;
             transform: translateY(calc(-75vh + 50px));

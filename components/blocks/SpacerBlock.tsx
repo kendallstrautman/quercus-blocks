@@ -1,4 +1,5 @@
 export function Spacer({ data }) {
+  // TODO: add dynamic spacer sizes
   return (
     <>
       <div className="spacer"></div>
@@ -8,7 +9,7 @@ export function Spacer({ data }) {
           grid-column: span 4;
           grid-column-row: ${data.row};
         }
-        @media (min-width: 1280px) {
+        @media (min-width: 1200px) {
           div.spacer {
             height: var(--lrg);
           }
