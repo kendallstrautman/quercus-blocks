@@ -34,12 +34,13 @@ export default function Meta(props) {
           a {
             text-decoration: none;
             color: inherit;
-            transition: opacity 0.2s ease;
+            transition: color 0.2s ease;
           }
           a:hover {
-            transition: opacity 0.2s ease;
-            opacity: 0.5;
+            transition: color 0.2s ease;
+            color: var(--orange);
             text-decoration-color: inherit;
+            cursor: pointer;
           }
           ul {
             list-style: none;
@@ -228,6 +229,7 @@ export default function Meta(props) {
             --med: 20px;
             --lrg: 48px;
             --xl: 88px;
+            --orange: #ec4815;
           }
         `}
       </style>

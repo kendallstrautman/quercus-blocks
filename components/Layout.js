@@ -16,10 +16,9 @@ export default function Layout(props) {
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            padding-bottom: var(--sm) 0;
           }
           div.content {
-            padding: 0 var(--sm);
+            padding: 5vh var(--sm) var(--sm) var(--sm);
             width: 100%;
             max-width: 768px;
             margin: 0 auto;
@@ -36,7 +35,7 @@ export default function Layout(props) {
             div.content {
               display: grid;
               max-width: none;
-              padding: 0 var(--med);
+              padding: 8vh var(--med) var(--med) var(--med);
               grid-template-columns: repeat(4, 1fr);
               grid-template-rows: auto;
             }
