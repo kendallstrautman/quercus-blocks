@@ -16,15 +16,17 @@ const Index = props => {
 
 export default Index
 
-Index.getInitialProps = async function() {
+export async function unstable_getStaticProps() {
   const configData = await import(`../data/config.json`)
   const blocksData = await import('../data/blocks.json')
 
   return {
-    ...configData,
-    jsonFile: {
-      fileRelativePath: `data.blocks.json`,
-      data: blocksData.default,
+    props: {
+      ...configData,
+      jsonFile: {
+        fileRelativePath: `data.blocks.json`,
+        data: blocksData.default,
+      },
     },
   }
 }
