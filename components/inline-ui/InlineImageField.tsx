@@ -34,7 +34,6 @@ export function InlineImageField({ name, uploadDir, parse }: InlineImageProps) {
                   },
                 ])
                 if (media) {
-                  console.log('media filename', media.filename)
                   props.input.onChange(parse(media.filename))
                 } else {
                   // TODO Handle failure
@@ -56,15 +55,6 @@ interface ImageUploadProps {
   value?: string
 }
 
-const DropArea = styled.div`
-  border-radius: 12px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  outline: none;
-  cursor: pointer;
-`
-
 export const ImageUpload = ({ onDrop, value }: ImageUploadProps) => {
   const {
     getRootProps,
@@ -75,7 +65,7 @@ export const ImageUpload = ({ onDrop, value }: ImageUploadProps) => {
   } = useDropzone({ accept: 'image/*', onDrop })
 
   return (
-    <DropArea {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
+    <div {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
       <input {...getInputProps()} />
       {value ? (
         <div>
@@ -88,6 +78,6 @@ export const ImageUpload = ({ onDrop, value }: ImageUploadProps) => {
           or click to select files
         </div>
       )}
-    </DropArea>
+    </div>
   )
 }
