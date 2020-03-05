@@ -1,4 +1,4 @@
-import { BlocksControls } from '../inline-ui'
+import { BlocksControls, BlockImage } from '../inline-ui'
 
 export function Image({ data, index }) {
   function getWidth() {
@@ -17,7 +17,7 @@ export function Image({ data, index }) {
     <>
       <div>
         <BlocksControls index={index}>
-          <img src={data.src} />
+          <BlockImage name="src" />
         </BlocksControls>
       </div>
       <style jsx>{`
@@ -53,6 +53,16 @@ export const image_template = {
   },
   key: undefined,
   fields: [
+    {
+      name: 'src',
+      label: 'Image Path',
+      component: 'text',
+    },
+    {
+      name: 'alt',
+      label: 'Image Alt Text',
+      component: 'text',
+    },
     {
       name: 'col_start',
       label: 'Column Start',
