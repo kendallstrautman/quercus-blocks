@@ -46,6 +46,7 @@ export const image_template = {
   defaultItem: {
     _template: 'image',
     src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
+    alt: '',
     position: 'right',
     width: 'large',
     col_start: 2,
