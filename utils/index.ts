@@ -1,1 +1,1 @@
-export * from './setPosition'
+export * from './blockPosition'

@@ -7,6 +7,7 @@ export function getPosition(
   width: 'narrow' | 'medium' | 'wide' | 'fullwidth',
   align: 'left' | 'right' | 'center'
 ) {
+  console.log('get position running')
   // defaults to full width
   const position: PositionProps = {
     colStart: 1,
@@ -61,4 +62,8 @@ export function getPosition(
   }
 
   return position
+}
+
+export function areColumnsSet(colStart, colEnd) {
+  return typeof colStart === 'number' && typeof colEnd === 'number'
 }
