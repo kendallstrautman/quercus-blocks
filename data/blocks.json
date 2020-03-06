@@ -10,6 +10,8 @@
     {
       "_template": "body_copy",
       "text": "What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.",
+      "width": "narrow",
+      "align": "right",
       "col_start": 4,
       "col_end": 5
     },
@@ -17,7 +19,6 @@
     {
       "_template": "image",
       "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
-
       "col_start": 2,
       "col_end": 5
     },
@@ -44,6 +45,8 @@
     {
       "_template": "body_copy",
       "text": "Now, to speak the truth, I had but ten cents in the world, and it surpassed my arithmetic to tell, if I was that man who had ten cents, or who had a farm, or ten dollars, or all together. However, I let him keep the ten dollars and the farm too, for I had carried it far enough; or rather, to be generous, I sold him the farm for just what I gave for it, and, as he was not a rich man, made him a present of ten dollars, and still had my ten cents, and seeds, and materials for a wheelbarrow left. I found thus that I had been a rich man without any damage to my poverty. ",
+      "width": "medium",
+      "align": "center",
       "col_start": 2,
       "col_end": 4
     },

@@ -1,7 +1,10 @@
 import { BlockTextArea } from '../inline-ui'
 import { BlocksControls } from '../inline-ui'
+import { getPosition } from '../../utils'
 
 export function BodyCopy({ data, index }) {
+  const { width, align, col_start, col_end } = data
+  const position = getPosition(width, align)
   return (
     <>
       <p>
@@ -12,8 +15,8 @@ export function BodyCopy({ data, index }) {
 
       <style jsx>{`
         p {
-          grid-column-start: ${data.col_start};
-          grid-column-end: ${data.col_end};
+          grid-column-start: ${position.colStart};
+          grid-column-end: ${position.colEnd};
           grid-row-start: ${index + 1};
         }
       `}</style>
@@ -34,16 +37,28 @@ export const body_copy_template = {
   key: undefined,
   fields: [
     {
-      name: 'col_start',
-      label: 'Column Start',
+      name: 'width',
+      label: 'Width',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['narrow', 'medium', 'wide', 'fullwidth'],
     },
     {
-      name: 'col_end',
-      label: 'Column End',
+      name: 'align',
+      label: 'Alignment',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['left', 'right', 'center'],
     },
+    // {
+    //   name: 'col_start',
+    //   label: 'Column Start',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
+    // {
+    //   name: 'col_end',
+    //   label: 'Column End',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
   ],
 }
