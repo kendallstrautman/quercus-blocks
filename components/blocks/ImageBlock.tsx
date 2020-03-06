@@ -1,6 +1,10 @@
 import { BlocksControls } from '../inline-ui'
 
 export function Image({ data, index }) {
+  /*
+   ** Makes it so far left / right images bleed
+   ** to very edge of page beyond grid margins
+   */
   function getWidth() {
     const width =
       (data.col_end === 5 || data.col_start === 1) && 'calc(100% + 20px)'
