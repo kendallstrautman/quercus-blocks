@@ -3,7 +3,7 @@ import { BlocksControls } from '../inline-ui'
 import { getPosition } from '../../utils'
 
 export function BodyCopy({ data, index }) {
-  const { width, align, col_start, col_end } = data
+  const { width, align } = data
   const position = getPosition(width, align)
   return (
     <>
