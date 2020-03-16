@@ -18,8 +18,8 @@ app.prepare().then(() => {
   server.use(
     '/___tina',
     gitApi.router({
-      pathToRepo: path.join(process.cwd(), '../..'),
-      pathToContent: '/',
+      pathToRepo: process.cwd(),
+      pathToContent: '',
     })
   )
 
