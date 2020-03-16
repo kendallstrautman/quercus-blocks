@@ -24,7 +24,7 @@ export async function unstable_getStaticProps() {
     props: {
       ...configData,
       jsonFile: {
-        fileRelativePath: `data.blocks.json`,
+        fileRelativePath: `data/blocks.json`,
         data: blocksData.default,
       },
     },
