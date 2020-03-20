@@ -1,4 +1,5 @@
-import { BlocksControls, BlockImage } from '../inline-ui'
+import { BlocksControls } from 'react-tinacms-inline'
+import { BlockImage } from '../inline-ui'
 
 export function Image({ data, index }) {
   function getWidth() {

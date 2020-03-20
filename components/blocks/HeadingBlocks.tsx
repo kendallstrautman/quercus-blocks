@@ -1,5 +1,5 @@
 import { BlockTextArea } from '../inline-ui'
-import { BlocksControls } from '../inline-ui'
+import { BlocksControls } from 'react-tinacms-inline'
 
 export function H1({ data, index }) {
   return (
