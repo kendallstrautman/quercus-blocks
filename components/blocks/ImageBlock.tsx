@@ -1,5 +1,6 @@
-import { BlocksControls } from '../inline-ui'
+import { BlocksControls, BlockImage } from '../inline-ui'
 import { getPosition } from '../../utils'
+
 
 export function Image({ data, index }) {
   /*
@@ -24,7 +25,7 @@ export function Image({ data, index }) {
     <>
       <div>
         <BlocksControls index={index}>
-          <img src={data.src} />
+          <BlockImage name="src" />
         </BlocksControls>
       </div>
       <style jsx>{`
@@ -53,6 +54,7 @@ export const image_template = {
   defaultItem: {
     _template: 'image',
     src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
+    alt: '',
     position: 'right',
     width: 'large',
     // col_start: 2,
@@ -71,6 +73,11 @@ export const image_template = {
       label: 'Alignment',
       component: 'select',
       options: ['left', 'right', 'center'],
+    },
+    {
+      name: 'alt',
+      label: 'Alt Text',
+      component: 'text',
     },
     // {
     //   name: 'col_start',

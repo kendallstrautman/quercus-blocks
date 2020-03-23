@@ -21,6 +21,7 @@
     {
       "_template": "image",
       "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
+       "alt": "",
       "width": "wide",
       "align": "right",
       "col_start": 2,
@@ -38,6 +39,7 @@
     {
       "_template": "image",
       "src": "/img/charlota-blunarova-LV0N2drB_BI-unsplash__SM.jpg",
+       "alt": "",
       "width": "medium",
       "align": "left",
       "col_start": 1,
@@ -64,14 +66,19 @@
     {
       "_template": "image",
       "src": "/img/nathan-dumlao-_GN1A0CNnrk-unsplash__SM.jpg",
+      "alt": "",
       "width": "medium",
       "align": "right",
+
+      "alt": "",
+
       "col_start": 3,
       "col_end": 5
     },
     {
       "_template": "image",
       "src": "/img/cristian-morales-4Hkwd4sp5NE-unsplash__SM.jpg",
+      "alt": "",
       "width": "narrow",
       "align": "left",
       "col_start": 1,

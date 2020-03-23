@@ -1,5 +1,5 @@
 import { useJsonForm } from 'next-tinacms-json'
-import { ModalProvider, BlockTemplate } from 'tinacms'
+import { ModalProvider } from 'tinacms'
 import { InlineForm, InlineBlocks } from 'react-tinacms-inline'
 
 import {
@@ -17,7 +17,7 @@ import {
 import { InlineControls, EditToggle, DiscardButton } from './inline-ui'
 
 export default function IndexBlocks({ jsonFile }) {
-  const [data, form] = useJsonForm(jsonFile)
+  const [, form] = useJsonForm(jsonFile)
 
   return (
     <ModalProvider>
