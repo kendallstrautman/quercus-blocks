@@ -8,7 +8,9 @@
       "col_start": 1,
       "col_end": 4
     },
-    { "_template": "spacer" },
+    {
+      "_template": "spacer"
+    },
     {
       "_template": "body_copy",
       "text": "What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.",
@@ -17,11 +19,13 @@
       "col_start": 4,
       "col_end": 5
     },
-    { "_template": "spacer" },
+    {
+      "_template": "spacer"
+    },
     {
       "_template": "image",
       "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
-       "alt": "",
+      "alt": "",
       "width": "wide",
       "align": "right",
       "col_start": 2,
@@ -35,17 +39,21 @@
       "col_start": 2,
       "col_end": 4
     },
-    { "_template": "spacer" },
+    {
+      "_template": "spacer"
+    },
     {
       "_template": "image",
       "src": "/img/charlota-blunarova-LV0N2drB_BI-unsplash__SM.jpg",
-       "alt": "",
+      "alt": "",
       "width": "medium",
       "align": "left",
       "col_start": 1,
       "col_end": 3
     },
-    { "_template": "spacer" },
+    {
+      "_template": "spacer"
+    },
     {
       "_template": "heading_1",
       "text": "A man is rich in proportion to the number of things which he can afford to let alone.",
@@ -62,16 +70,15 @@
       "col_start": 2,
       "col_end": 4
     },
-    { "_template": "spacer" },
+    {
+      "_template": "spacer"
+    },
     {
       "_template": "image",
       "src": "/img/nathan-dumlao-_GN1A0CNnrk-unsplash__SM.jpg",
       "alt": "",
       "width": "medium",
       "align": "right",
-
-      "alt": "",
-
       "col_start": 3,
       "col_end": 5
     },
@@ -84,7 +91,9 @@
       "col_start": 1,
       "col_end": 2
     },
-    { "_template": "spacer" },
+    {
+      "_template": "spacer"
+    },
     {
       "_template": "heading_2",
       "text": "Well, there I might live, I said; and there I did live, for an hour, a summer and a winter life; saw how I could let the years run off, buffet the winter through, and see the spring come in. ",
@@ -93,6 +102,8 @@
       "col_start": 3,
       "col_end": 5
     },
-    { "_template": "spacer" }
+    {
+      "_template": "spacer"
+    }
   ]
 }
