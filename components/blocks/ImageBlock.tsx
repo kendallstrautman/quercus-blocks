@@ -1,4 +1,5 @@
 import { BlocksControls } from '../inline-ui'
+import { getPosition } from '../../utils'
 
 export function Image({ data, index }) {
   /*
@@ -14,6 +15,8 @@ export function Image({ data, index }) {
     const translateX = data.col_start === 1 && 'translateX(-20px)'
     return translateX
   }
+  const { width, align } = data
+  const position = getPosition(width, align)
   /*
    ** TODO: Need inline image field here
    */
@@ -26,8 +29,8 @@ export function Image({ data, index }) {
       </div>
       <style jsx>{`
         div {
-          grid-column-start: ${data.col_start};
-          grid-column-end: ${data.col_end};
+          grid-column-start: ${position.colStart};
+          grid-column-end: ${position.colEnd};
           grid-row-start: ${index + 1};
           width: ${getWidth()};
           transform: ${getTranslateX()};
@@ -52,22 +55,34 @@ export const image_template = {
     src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
     position: 'right',
     width: 'large',
-    col_start: 2,
-    col_end: 4,
+    // col_start: 2,
+    // col_end: 4,
   },
   key: undefined,
   fields: [
     {
-      name: 'col_start',
-      label: 'Column Start',
+      name: 'width',
+      label: 'Width',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['narrow', 'medium', 'wide', 'fullwidth'],
     },
     {
-      name: 'col_end',
-      label: 'Column End',
+      name: 'align',
+      label: 'Alignment',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['left', 'right', 'center'],
     },
+    // {
+    //   name: 'col_start',
+    //   label: 'Column Start',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
+    // {
+    //   name: 'col_end',
+    //   label: 'Column End',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
   ],
 }

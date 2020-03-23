@@ -3,6 +3,8 @@
     {
       "_template": "heading_1",
       "text": "Wherever I sat, there I might live, and the landscape radiated from me accordingly.",
+      "width": "wide",
+      "align": "left",
       "col_start": 1,
       "col_end": 4
     },
@@ -19,12 +21,16 @@
     {
       "_template": "image",
       "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
+      "width": "wide",
+      "align": "right",
       "col_start": 2,
       "col_end": 5
     },
     {
       "_template": "heading_2",
       "text": "Well, there I might live, I said; and there I did live, for an hour, a summer and a winter life; saw how I could let the years run off, buffet the winter through, and see the spring come in. ",
+      "width": "medium",
+      "align": "center",
       "col_start": 2,
       "col_end": 4
     },
@@ -32,6 +38,8 @@
     {
       "_template": "image",
       "src": "/img/charlota-blunarova-LV0N2drB_BI-unsplash__SM.jpg",
+      "width": "medium",
+      "align": "left",
       "col_start": 1,
       "col_end": 3
     },
@@ -39,6 +47,8 @@
     {
       "_template": "heading_1",
       "text": "A man is rich in proportion to the number of things which he can afford to let alone.",
+      "width": "wide",
+      "align": "right",
       "col_start": 2,
       "col_end": 5
     },
@@ -54,12 +64,16 @@
     {
       "_template": "image",
       "src": "/img/nathan-dumlao-_GN1A0CNnrk-unsplash__SM.jpg",
+      "width": "medium",
+      "align": "right",
       "col_start": 3,
       "col_end": 5
     },
     {
       "_template": "image",
       "src": "/img/cristian-morales-4Hkwd4sp5NE-unsplash__SM.jpg",
+      "width": "narrow",
+      "align": "left",
       "col_start": 1,
       "col_end": 2
     },
@@ -67,6 +81,8 @@
     {
       "_template": "heading_2",
       "text": "Well, there I might live, I said; and there I did live, for an hour, a summer and a winter life; saw how I could let the years run off, buffet the winter through, and see the spring come in. ",
+      "width": "medium",
+      "align": "right",
       "col_start": 3,
       "col_end": 5
     },
