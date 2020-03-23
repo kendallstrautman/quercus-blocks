@@ -1,5 +1,5 @@
-import { BlockTextArea } from '../inline-ui'
-import { BlocksControls } from 'react-tinacms-inline'
+// TODO: update to BlockTextarea with next release
+import { BlocksControls, BlockTextArea } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
 
 export function BodyCopy({ data, index }) {
