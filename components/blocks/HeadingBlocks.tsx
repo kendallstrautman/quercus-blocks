@@ -1,7 +1,10 @@
 import { BlockTextArea } from '../inline-ui'
 import { BlocksControls } from '../inline-ui'
+import { getPosition } from '../../utils'
 
 export function H1({ data, index }) {
+  const { width, align } = data
+  const position = getPosition(width, align)
   return (
     <>
       <h1>
@@ -12,8 +15,8 @@ export function H1({ data, index }) {
 
       <style jsx>{`
         h1 {
-          grid-column-start: ${data.col_start};
-          grid-column-end: ${data.col_end};
+          grid-column-start: ${position.colStart};
+          grid-column-end: ${position.colEnd};
           grid-row-start: ${index + 1};
         }
       `}</style>
@@ -28,27 +31,43 @@ export const heading_1_template = {
     _template: 'heading_1',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    col_start: 1,
-    col_end: 4,
+    width: 'wide',
+    align: 'left',
+    // col_start: 1,
+    // col_end: 4,
   },
   key: undefined,
   fields: [
     {
-      name: 'col_start',
-      label: 'Column Start',
+      name: 'width',
+      label: 'Width',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['narrow', 'medium', 'wide', 'fullwidth'],
     },
     {
-      name: 'col_end',
-      label: 'Column End',
+      name: 'align',
+      label: 'Alignment',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['left', 'right', 'center'],
     },
+    // {
+    //   name: 'col_start',
+    //   label: 'Column Start',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
+    // {
+    //   name: 'col_end',
+    //   label: 'Column End',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
   ],
 }
 
 export function H2({ data, index }) {
+  const { width, align } = data
+  const position = getPosition(width, align)
   return (
     <>
       <h2>
@@ -59,8 +78,8 @@ export function H2({ data, index }) {
 
       <style jsx>{`
         h2 {
-          grid-column-start: ${data.col_start};
-          grid-column-end: ${data.col_end};
+          grid-column-start: ${position.colStart};
+          grid-column-end: ${position.colEnd};
           grid-row-start: ${index + 1};
         }
       `}</style>
@@ -75,22 +94,36 @@ export const heading_2_template = {
     _template: 'heading_2',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    col_start: 2,
-    col_end: 4,
+    width: 'medium',
+    align: 'center',
+    // col_start: 2,
+    // col_end: 4,
   },
   key: undefined,
   fields: [
     {
-      name: 'col_start',
-      label: 'Column Start',
+      name: 'width',
+      label: 'Width',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['narrow', 'medium', 'wide', 'fullwidth'],
     },
     {
-      name: 'col_end',
-      label: 'Column End',
+      name: 'align',
+      label: 'Alignment',
       component: 'select',
-      options: [1, 2, 3, 4, 5],
+      options: ['left', 'right', 'center'],
     },
+    // {
+    //   name: 'col_start',
+    //   label: 'Column Start',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
+    // {
+    //   name: 'col_end',
+    //   label: 'Column End',
+    //   component: 'select',
+    //   options: [1, 2, 3, 4, 5],
+    // },
   ],
 }
