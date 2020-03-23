@@ -2,7 +2,6 @@ import React from 'react'
 import { InlineField } from 'react-tinacms-inline'
 import styled from 'styled-components'
 import TextareaAutosize from 'react-textarea-autosize'
-import { radius, color } from '@tinacms/styles'
 
 interface InlineTextFieldProps {
   name: string
@@ -48,8 +47,8 @@ const InputFocusWrapper = styled.div`
     top: -16px;
     width: calc(100% + 2rem);
     height: calc(100% + 2rem);
-    border: 3px solid ${color.primary()};
-    border-radius: ${radius()};
+    border: 3px solid var(--tina-color-primary);
+    border-radius: var(--tina-radius-small);
     opacity: 0;
     pointer-events: none;
     z-index: 1000;
