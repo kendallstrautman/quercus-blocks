@@ -14,11 +14,11 @@ module.exports = withSvgr({
     return {}
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    if (dev) {
-      tinaWebpackHelpers.aliasTinaDev(config, '../../tinacms', [
-        'react-tinacms-inline',
-      ])
-    }
+    // if (dev) {
+    //   tinaWebpackHelpers.aliasTinaDev(config, '../../tinacms', [
+    //     'react-tinacms-inline',
+    //   ])
+    // }
     config.node = {
       fs: 'empty',
     }
