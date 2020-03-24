@@ -1,6 +1,5 @@
-import { BlocksControls, BlockImage } from '../inline-ui'
+import { BlocksControls, BlockImage } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
-
 
 export function Image({ data, index }) {
   /*
@@ -25,7 +24,11 @@ export function Image({ data, index }) {
     <>
       <div>
         <BlocksControls index={index}>
-          <BlockImage name="src" />
+          <BlockImage
+            name="src"
+            parse={filename => `/img/${filename}`}
+            uploadDir={() => '/public/img/'}
+          />
         </BlocksControls>
       </div>
       <style jsx>{`

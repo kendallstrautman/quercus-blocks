@@ -1,4 +1,4 @@
-import { BlocksControls } from '../inline-ui'
+import { BlocksControls } from 'react-tinacms-inline'
 
 export function Spacer({ data, index }) {
   // TODO: add dynamic spacer sizes

@@ -25,7 +25,7 @@ export default function Layout(props) {
             max-width: 768px;
             margin: 0 auto;
           }
-          div.content * {
+          div.content > * {
             padding: var(--sm) 0;
           }
           @media (min-width: 768px) {
@@ -41,7 +41,7 @@ export default function Layout(props) {
               grid-template-columns: repeat(4, 1fr);
               grid-template-rows: auto;
             }
-            div.content * {
+            div.content > * {
               padding: var(--med) 0;
             }
           }
