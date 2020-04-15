@@ -36,7 +36,7 @@ export const body_copy_template = {
     // col_start: 2,
     // col_end: 3,
   },
-  key: undefined,
+  key: 'body-copy',
   fields: [
     {
       name: 'width',
