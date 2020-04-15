@@ -24,7 +24,7 @@
     "express": "^4.17.1",
     "final-form": "^4.18.7",
     "moment": "^2.24.0",
-    "next": "9.2.3-canary.12",
+    "next": "9.3.5",
     "next-svgr": "^0.0.2",
     "next-tinacms-json": "^0.3.11",
     "prop-types": "^15.7.2",
