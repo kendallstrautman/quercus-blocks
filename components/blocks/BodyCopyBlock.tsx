@@ -1,5 +1,4 @@
-// TODO: update to BlockTextarea with next release
-import { BlocksControls, BlockTextArea } from 'react-tinacms-inline'
+import { BlocksControls, BlockTextarea } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
 
 export function BodyCopy({ data, index }) {
@@ -9,7 +8,7 @@ export function BodyCopy({ data, index }) {
     <>
       <p>
         <BlocksControls index={index}>
-          <BlockTextArea name="text" />
+          <BlockTextarea name="text" />
         </BlocksControls>
       </p>
 
@@ -36,7 +35,7 @@ export const body_copy_template = {
     // col_start: 2,
     // col_end: 3,
   },
-  key: undefined,
+  key: 'body-copy',
   fields: [
     {
       name: 'width',

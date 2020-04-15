@@ -14,7 +14,12 @@ import {
   Spacer,
   spacer_template,
 } from './blocks'
-import { InlineControls, EditToggle, DiscardButton } from './inline-ui'
+import {
+  InlineControls,
+  EditToggle,
+  DiscardButton,
+  SaveButton,
+} from './inline-ui'
 
 export default function IndexBlocks({ jsonFile }) {
   const [, form] = useJsonForm(jsonFile)
@@ -25,6 +30,7 @@ export default function IndexBlocks({ jsonFile }) {
         <InlineControls>
           <EditToggle />
           <DiscardButton />
+          <SaveButton />
         </InlineControls>
         <InlineBlocks name="index_blocks" blocks={INDEX_PAGE_BLOCKS} />
       </InlineForm>

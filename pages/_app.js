@@ -7,15 +7,23 @@ export default class Site extends App {
   constructor() {
     super()
 
+    const client = new GitClient('http://localhost:3000/___tina')
+
     this.cms = new TinaCMS({
+      apis: {
+        git: client,
+      },
+      media: {
+        store: new GitMediaStore(client),
+      },
       sidebar: {
         position: 'overlay',
-        hidden: false, // TODO: once GlobalStyles is fixed, hide this
+        hidden: true,
+      },
+      toolbar: {
+        hidden: false,
       },
     })
-    const client = new GitClient('http://localhost:3000/___tina')
-    this.cms.registerApi('git', client)
-    this.cms.media.store = new GitMediaStore(client)
   }
 
   render() {
