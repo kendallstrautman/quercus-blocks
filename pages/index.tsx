@@ -16,7 +16,7 @@ const Index = props => {
 
 export default Index
 
-export async function unstable_getStaticProps() {
+export async function getStaticProps() {
   const configData = await import(`../data/config.json`)
   const blocksData = await import('../data/blocks.json')
 
