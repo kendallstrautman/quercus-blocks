@@ -1,6 +1,6 @@
 const withSvgr = require('next-svgr')
 require('dotenv').config()
-const tinaWebpackHelpers = require('../../tinacms/packages/@tinacms/webpack-helpers')
+// const tinaWebpackHelpers = require('../../tinacms/packages/@tinacms/webpack-helpers')
 
 module.exports = withSvgr({
   env: {
