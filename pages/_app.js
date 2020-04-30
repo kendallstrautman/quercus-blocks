@@ -18,7 +18,7 @@ export default class Site extends App {
       },
       sidebar: {
         position: 'overlay',
-        hidden: !props.pageProps.preview,
+        hidden: true,
       },
       toolbar: {
         hidden: !props.pageProps.preview,
