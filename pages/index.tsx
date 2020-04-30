@@ -9,7 +9,7 @@ const Index = props => {
       siteDescription={props.description}
       infoBlurb={props.infoBlurb}
     >
-      <IndexBlocks jsonFile={props.jsonFile} />
+      <IndexBlocks form={form} />
     </Layout>
   )
 }
