@@ -21,7 +21,7 @@ export default class Site extends App {
         hidden: true,
       },
       toolbar: {
-        hidden: !props.pageProps.preview,
+        hidden: !props.pageProps.githubPreviewData.preview,
       },
     })
   }
