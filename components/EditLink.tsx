@@ -1,12 +1,16 @@
-export default function EditLink() {
-  /*
-   ** TODO: toggle the emoji based on the edit context
-   ** from ✐ to ✗ ? for exit edit mode
-   */
+import { useGithubEditing } from 'react-tinacms-github'
+
+interface EditLinkProps {
+  editMode: boolean
+}
+
+export default function EditLink({ editMode }: EditLinkProps) {
+  const github = useGithubEditing()
+
   return (
     <>
-      <p>
-        <a>Edit This Page ✐ </a>
+      <p onClick={editMode ? github.exitEditMode : github.enterEditMode}>
+        <a>{editMode ? 'Exit Edit Mode ✗' : 'Edit This Page ✐ '}</a>
       </p>
       <style jsx>{`
         p {
