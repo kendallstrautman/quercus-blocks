@@ -2,7 +2,12 @@ import React from 'react'
 import EditLink from './EditLink'
 import Chevron from './icons/Chevron'
 
-export default function Nav(props) {
+interface NavProps {
+  editMode: boolean
+  infoBlurb: string
+}
+
+export default function Nav(props: NavProps) {
   const [isOpen, setIsOpen] = React.useState(false)
 
   function handleOpenCloseNav(e) {
