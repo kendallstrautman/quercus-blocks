@@ -4,18 +4,9 @@ import Chevron from './icons/Chevron'
 
 export default function Nav(props) {
   const [isOpen, setIsOpen] = React.useState(false)
-  function handleOpenNav(e) {
-    e.preventDefault()
-    const navClass = document.querySelector('nav').classList
-    const chevronClass = document.querySelector('.chevron').classList
 
-    if (isOpen) {
-      navClass.remove('isOpen')
-      chevronClass.remove('pointsUp')
-    } else {
-      navClass.add('isOpen')
-      chevronClass.add('pointsUp')
-    }
+  function handleOpenCloseNav(e) {
+    e.preventDefault()
     setIsOpen(!isOpen)
   }
 
@@ -26,9 +17,9 @@ export default function Nav(props) {
           <h2>{props.infoBlurb}</h2>
         </div>
         <span className="navItems">
-          <EditLink />
-          <a onClick={handleOpenNav} className="info-link">
-            <Chevron />
+          <EditLink editMode={props.editMode} />
+          <a onClick={handleOpenCloseNav} className="info-link">
+            <Chevron pointsUp={isOpen} />
           </a>
         </span>
       </nav>
@@ -40,13 +31,14 @@ export default function Nav(props) {
           position: fixed;
           top: 0;
           background-color: var(--orange);
-          transform: translateY(calc(-100vh + 50px));
-          transition: transform 350ms ease-in-out;
+
+          ${isOpen
+            ? `transform: translateY(0);
+            transition: transform 375ms ease;`
+            : `transform: translateY(calc(-100vh + 50px));
+            transition: transform 350ms ease-in-out;`}
         }
-        nav.isOpen {
-          transform: translateY(0);
-          transition: transform 375ms ease;
-        }
+
         div.infoBlurb {
           display: flex;
           width: 100%;
