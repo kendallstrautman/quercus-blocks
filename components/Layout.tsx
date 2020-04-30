@@ -4,8 +4,8 @@ import Footer from './Footer'
 
 interface LayoutProps {
   editMode: boolean
-  infoBlurb: string
   children: any
+  infoBlurb: string
   siteTitle: string
   siteDescription: string
 }
