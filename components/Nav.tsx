@@ -7,10 +7,11 @@ interface NavProps {
   infoBlurb: string
 }
 
-export default function Nav(props: NavProps) {
+export default function Nav({ editMode, infoBlurb }: NavProps) {
   const [isOpen, setIsOpen] = React.useState(false)
 
   function handleOpenCloseNav(e) {
+    console.log('isOpen!', isOpen)
     e.preventDefault()
     setIsOpen(!isOpen)
   }
@@ -19,10 +20,10 @@ export default function Nav(props: NavProps) {
     <>
       <nav>
         <div className="infoBlurb">
-          <h2>{props.infoBlurb}</h2>
+          <h2>{infoBlurb}</h2>
         </div>
         <span className="navItems">
-          <EditLink editMode={props.editMode} />
+          <EditLink editMode={editMode} />
           <a onClick={handleOpenCloseNav} className="info-link">
             <Chevron pointsUp={isOpen} />
           </a>
@@ -34,14 +35,13 @@ export default function Nav(props: NavProps) {
           width: 100%;
           height: 100vh;
           position: fixed;
-          top: 0;
+          ${editMode ? `top: 62px;` : `top: 0;`}
           background-color: var(--orange);
-
+          transition: transform 350ms ease-in-out;
           ${isOpen
             ? `transform: translateY(0);
             transition: transform 375ms ease;`
-            : `transform: translateY(calc(-100vh + 50px));
-            transition: transform 350ms ease-in-out;`}
+            : `transform: translateY(calc(-100vh + 50px));`}
         }
 
         div.infoBlurb {
@@ -77,7 +77,9 @@ export default function Nav(props: NavProps) {
         @media (min-width: 1000px) {
           nav {
             height: 75vh;
-            transform: translateY(calc(-75vh + 50px));
+            ${isOpen
+              ? `transform: translateY(0);`
+              : `transform: translateY(calc(-75vh + 50px));`}
           }
           .info-link {
             padding: var(--sm) var(--med);
