@@ -2,14 +2,19 @@ import Meta from './Meta'
 import Nav from './Nav'
 import Footer from './Footer'
 
-export default function Layout(props) {
+interface LayoutProps {
+  editMode: boolean
+  children: any
+  infoBlurb: string
+  siteTitle: string
+  siteDescription: string
+}
+
+export default function Layout(props: LayoutProps) {
   return (
     <section className="layout">
-      <Meta
-        siteTitle={props.siteTitle}
-        siteDescription={props.siteDescription}
-      />
-      <Nav infoBlurb={props.infoBlurb} />
+      <Meta siteTitle={props.siteTitle} description={props.siteDescription} />
+      <Nav editMode={props.editMode} infoBlurb={props.infoBlurb} />
       <div className="content">{props.children}</div>
       <Footer />
       <style jsx global>

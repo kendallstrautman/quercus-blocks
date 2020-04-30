@@ -1,16 +1,12 @@
 import styled from 'styled-components'
-import { TinaReset, Button as TinaButton } from '@tinacms/styles'
+import { Button as TinaButton } from '@tinacms/styles'
 
 export const InlineControls = styled(({ children, ...styleProps }: any) => {
-  return (
-    <div {...styleProps}>
-      <TinaReset>{children}</TinaReset>
-    </div>
-  )
+  return <div {...styleProps}>{children}</div>
 })`
   position: fixed;
-  bottom: 2.75rem;
-  margin-left: 4rem;
+  bottom: 1rem;
+  margin-left: 1rem;
   display: flex;
   overflow: visible;
   z-index: 1000;
@@ -19,10 +15,6 @@ export const InlineControls = styled(({ children, ...styleProps }: any) => {
     font-size: 16px;
     height: 44px;
     outline: none !important;
-  }
-
-  ${TinaReset} {
-    overflow: visible;
   }
 
   button {

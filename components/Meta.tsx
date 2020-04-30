@@ -1,6 +1,11 @@
 import Head from 'next/head'
 
-export default function Meta(props) {
+interface MetaProps {
+  siteTitle: string
+  description: string
+}
+
+export default function Meta(props: MetaProps) {
   return (
     <>
       <Head>

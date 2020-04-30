@@ -1,4 +1,8 @@
-export default function Chevron() {
+interface ChevronProps {
+  pointsUp: boolean
+}
+
+export default function Chevron({ pointsUp }: ChevronProps) {
   return (
     <>
       <svg
@@ -16,10 +20,9 @@ export default function Chevron() {
             fill: var(--orange);
             transform: rotate(0deg);
             transition: transform 200ms ease;
-          }
-          svg.pointsUp {
-            transform: rotate(-180deg);
-            transition: transform 275ms ease;
+            ${pointsUp &&
+              `  transform: rotate(-180deg);
+            transition: transform 275ms ease;`}
           }
         `}
       </style>

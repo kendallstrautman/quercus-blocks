@@ -10,9 +10,6 @@ module.exports = withSvgr({
     BASE_BRANCH: process.env.BASE_BRANCH,
   },
   exportTrailingSlash: true,
-  exportPathMap: async function() {
-    return {}
-  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // if (dev) {
     //   tinaWebpackHelpers.aliasTinaDev(config, '../../tinacms', [

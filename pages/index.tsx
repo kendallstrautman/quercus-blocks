@@ -1,32 +1,62 @@
+import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
+import { useGithubJsonForm } from 'react-tinacms-github'
+
 import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
 
-const Index = props => {
+const Index = ({ githubPreviewData, siteMetaData }) => {
+  const formOptions = {
+    label: 'Index Page',
+  }
+
+  const [, form] = useGithubJsonForm(githubPreviewData.file, formOptions)
+
   return (
     <Layout
-      pathname="/"
-      siteTitle={props.title}
-      siteDescription={props.description}
-      infoBlurb={props.infoBlurb}
+      editMode={githubPreviewData.preview}
+      siteTitle={siteMetaData.title}
+      siteDescription={siteMetaData.description}
+      infoBlurb={siteMetaData.infoBlurb}
     >
-      <IndexBlocks jsonFile={props.jsonFile} />
+      <IndexBlocks form={form} />
     </Layout>
   )
 }
 
 export default Index
 
-export async function getStaticProps() {
-  const configData = await import(`../data/config.json`)
-  const blocksData = await import('../data/blocks.json')
+export async function getStaticProps<GetStaticProps>({ preview, previewData }) {
+  const siteMeta = await import(`../data/config.json`)
 
-  return {
-    props: {
-      ...configData,
-      jsonFile: {
-        fileRelativePath: `data/blocks.json`,
-        data: blocksData.default,
+  if (preview) {
+    const githubPreviewData = await getGithubPreviewProps({
+      ...previewData,
+      fileRelativePath: '/data/blocks.json',
+      parse: parseJson,
+    })
+
+    return {
+      props: {
+        githubPreviewData: githubPreviewData.props,
+        siteMetaData: siteMeta.default,
       },
-    },
+    }
+  } else {
+    const blocksData = await import('../data/blocks.json')
+
+    return {
+      props: {
+        siteMetaData: siteMeta.default,
+        githubPreviewData: {
+          sourceProvider: null,
+          error: null,
+          preview: false,
+          file: {
+            fileRelativePath: `data/blocks.json`,
+            data: blocksData.default,
+          },
+        },
+      },
+    }
   }
 }

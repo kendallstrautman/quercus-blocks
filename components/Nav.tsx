@@ -2,20 +2,17 @@ import React from 'react'
 import EditLink from './EditLink'
 import Chevron from './icons/Chevron'
 
-export default function Nav(props) {
-  const [isOpen, setIsOpen] = React.useState(false)
-  function handleOpenNav(e) {
-    e.preventDefault()
-    const navClass = document.querySelector('nav').classList
-    const chevronClass = document.querySelector('.chevron').classList
+interface NavProps {
+  editMode: boolean
+  infoBlurb: string
+}
 
-    if (isOpen) {
-      navClass.remove('isOpen')
-      chevronClass.remove('pointsUp')
-    } else {
-      navClass.add('isOpen')
-      chevronClass.add('pointsUp')
-    }
+export default function Nav({ editMode, infoBlurb }: NavProps) {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  function handleOpenCloseNav(e) {
+    console.log('isOpen!', isOpen)
+    e.preventDefault()
     setIsOpen(!isOpen)
   }
 
@@ -23,12 +20,12 @@ export default function Nav(props) {
     <>
       <nav>
         <div className="infoBlurb">
-          <h2>{props.infoBlurb}</h2>
+          <h2>{infoBlurb}</h2>
         </div>
         <span className="navItems">
-          <EditLink />
-          <a onClick={handleOpenNav} className="info-link">
-            <Chevron />
+          <EditLink editMode={editMode} />
+          <a onClick={handleOpenCloseNav} className="info-link">
+            <Chevron pointsUp={isOpen} />
           </a>
         </span>
       </nav>
@@ -38,15 +35,15 @@ export default function Nav(props) {
           width: 100%;
           height: 100vh;
           position: fixed;
-          top: 0;
+          ${editMode ? `top: 62px;` : `top: 0;`}
           background-color: var(--orange);
-          transform: translateY(calc(-100vh + 50px));
           transition: transform 350ms ease-in-out;
+          ${isOpen
+            ? `transform: translateY(0);
+            transition: transform 375ms ease;`
+            : `transform: translateY(calc(-100vh + 50px));`}
         }
-        nav.isOpen {
-          transform: translateY(0);
-          transition: transform 375ms ease;
-        }
+
         div.infoBlurb {
           display: flex;
           width: 100%;
@@ -80,7 +77,9 @@ export default function Nav(props) {
         @media (min-width: 1000px) {
           nav {
             height: 75vh;
-            transform: translateY(calc(-75vh + 50px));
+            ${isOpen
+              ? `transform: translateY(0);`
+              : `transform: translateY(calc(-75vh + 50px));`}
           }
           .info-link {
             padding: var(--sm) var(--med);
