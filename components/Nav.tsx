@@ -11,7 +11,6 @@ export default function Nav({ editMode, infoBlurb }: NavProps) {
   const [isOpen, setIsOpen] = React.useState(false)
 
   function handleOpenCloseNav(e) {
-    console.log('isOpen!', isOpen)
     e.preventDefault()
     setIsOpen(!isOpen)
   }
