@@ -1,22 +1,39 @@
-import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
+import {
+  getGithubPreviewProps,
+  parseJson,
+  GithubFile,
+  GithubError,
+} from 'next-tinacms-github'
 import { useGithubJsonForm } from 'react-tinacms-github'
 
 import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
 
-const Index = ({ githubPreviewData, siteMetaData }) => {
+interface IndexProps {
+  preview: boolean
+  repoFullName: string
+  branch: string
+  file: GithubFile<any> | null
+  error: GithubError | null
+  title: string
+  description: string
+  infoBlurb: string
+}
+
+function Index(props: IndexProps) {
+  const { file, preview, title, description, infoBlurb } = props
   const formOptions = {
     label: 'Index Page',
   }
 
-  const [, form] = useGithubJsonForm(githubPreviewData.file, formOptions)
+  const [, form] = useGithubJsonForm(file, formOptions)
 
   return (
     <Layout
-      editMode={githubPreviewData.preview}
-      siteTitle={siteMetaData.title}
-      siteDescription={siteMetaData.description}
-      infoBlurb={siteMetaData.infoBlurb}
+      editMode={preview}
+      siteTitle={title}
+      siteDescription={description}
+      infoBlurb={infoBlurb}
     >
       <IndexBlocks form={form} />
     </Layout>
@@ -37,8 +54,8 @@ export async function getStaticProps<GetStaticProps>({ preview, previewData }) {
 
     return {
       props: {
-        githubPreviewData: githubPreviewData.props,
-        siteMetaData: siteMeta.default,
+        ...githubPreviewData.props,
+        ...siteMeta.default,
       },
     }
   } else {
@@ -46,15 +63,13 @@ export async function getStaticProps<GetStaticProps>({ preview, previewData }) {
 
     return {
       props: {
-        siteMetaData: siteMeta.default,
-        githubPreviewData: {
-          sourceProvider: null,
-          error: null,
-          preview: false,
-          file: {
-            fileRelativePath: `data/blocks.json`,
-            data: blocksData.default,
-          },
+        ...siteMeta.default,
+        sourceProvider: null,
+        error: null,
+        preview: false,
+        file: {
+          fileRelativePath: `data/blocks.json`,
+          data: blocksData.default,
         },
       },
     }
