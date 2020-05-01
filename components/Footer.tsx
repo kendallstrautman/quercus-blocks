@@ -7,7 +7,7 @@ export default function Footer() {
         </p>
         <div className="socialItems">
           <p>
-            <a href="https://github.com/tinacms/tinacms/">Github</a>
+            <a href="https://github.com/tinacms/tinacms/">GitHub</a>
           </p>
 
           <p>
