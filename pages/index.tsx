@@ -8,6 +8,8 @@ import {
   useGithubJsonForm,
   useGithubToolbarPlugins,
 } from 'react-tinacms-github'
+import { ModalProvider, Form } from 'tinacms'
+import { InlineForm } from 'react-tinacms-inline'
 
 import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
@@ -40,7 +42,11 @@ function Index(props: IndexProps) {
       siteDescription={description}
       infoBlurb={infoBlurb}
     >
-      <IndexBlocks form={form} />
+      <ModalProvider>
+        <InlineForm form={form as Form}>
+          <IndexBlocks editMode={preview} />
+        </InlineForm>
+      </ModalProvider>
     </Layout>
   )
 }

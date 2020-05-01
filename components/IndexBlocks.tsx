@@ -1,5 +1,5 @@
-import { ModalProvider, Form } from 'tinacms'
-import { InlineForm, InlineBlocks } from 'react-tinacms-inline'
+import { useMemo } from 'react'
+import { InlineBlocks, useInlineForm } from 'react-tinacms-inline'
 
 import {
   BodyCopy,
@@ -13,30 +13,21 @@ import {
   Spacer,
   spacer_template,
 } from './blocks'
-import {
-  InlineControls,
-  EditToggle,
-  DiscardButton,
-  SaveButton,
-} from './inline-ui'
 
 interface InlineBlocksProps {
-  form: Form
+  editMode: boolean
 }
 
-export default function IndexBlocks({ form }: InlineBlocksProps) {
-  return (
-    <ModalProvider>
-      <InlineForm form={form}>
-        <InlineControls>
-          <EditToggle />
-          <DiscardButton />
-          <SaveButton />
-        </InlineControls>
-        <InlineBlocks name="index_blocks" blocks={INDEX_PAGE_BLOCKS} />
-      </InlineForm>
-    </ModalProvider>
-  )
+export default function IndexBlocks({ editMode }: InlineBlocksProps) {
+  const { deactivate, activate } = useInlineForm()
+
+  function handleInlineEditMode() {
+    editMode ? activate() : deactivate()
+  }
+
+  useMemo(handleInlineEditMode, [editMode])
+
+  return <InlineBlocks name="index_blocks" blocks={INDEX_PAGE_BLOCKS} />
 }
 
 export const INDEX_PAGE_BLOCKS = {
