@@ -4,6 +4,8 @@ import { TinaProvider, TinaCMS } from 'tinacms'
 import { GithubClient, TinacmsGithubProvider } from 'react-tinacms-github'
 
 export default class Site extends App {
+  cms: TinaCMS
+
   constructor(props) {
     super(props)
 
