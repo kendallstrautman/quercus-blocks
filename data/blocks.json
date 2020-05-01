@@ -75,6 +75,9 @@
       "col_end": 5
     },
     {
+      "_template": "spacer"
+    },
+    {
       "_template": "image",
       "src": "/img/cristian-morales-4Hkwd4sp5NE-unsplash__SM.jpg",
       "alt": "",
