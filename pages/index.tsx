@@ -4,7 +4,10 @@ import {
   GithubFile,
   GithubError,
 } from 'next-tinacms-github'
-import { useGithubJsonForm } from 'react-tinacms-github'
+import {
+  useGithubJsonForm,
+  useGithubToolbarPlugins,
+} from 'react-tinacms-github'
 
 import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
@@ -27,6 +30,8 @@ function Index(props: IndexProps) {
   }
 
   const [, form] = useGithubJsonForm(file, formOptions)
+
+  useGithubToolbarPlugins()
 
   return (
     <Layout
