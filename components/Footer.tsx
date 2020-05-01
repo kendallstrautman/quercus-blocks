@@ -3,7 +3,7 @@ export default function Footer() {
     <>
       <footer>
         <p>
-          <a href="https://tinacms.org/">Made by: TinaCMS 🦙</a>
+          <a href="https://tinacms.org/">Made with TinaCMS 🦙</a>
         </p>
         <div className="socialItems">
           <p>
