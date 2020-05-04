@@ -29,6 +29,7 @@ function Index(props: IndexProps) {
   const { file, preview, title, description, infoBlurb } = props
   const formOptions = {
     label: 'Index Page',
+    fields: [{ name: 'title', component: 'text' }],
   }
 
   const [, form] = useGithubJsonForm(file, formOptions)
