@@ -60,7 +60,7 @@ export async function getStaticProps<GetStaticProps>({ preview, previewData }) {
   if (preview) {
     const githubPreviewData = await getGithubPreviewProps({
       ...previewData,
-      fileRelativePath: '/data/blocks.json',
+      fileRelativePath: 'data/blocks.json',
       parse: parseJson,
     })
 
