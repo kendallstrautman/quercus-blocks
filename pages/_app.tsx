@@ -30,6 +30,7 @@ export default class Site extends App {
 
   render() {
     const { Component, pageProps } = this.props
+
     return (
       <TinaProvider cms={this.cms}>
         <TinacmsGithubProvider
