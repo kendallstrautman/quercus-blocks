@@ -6,8 +6,7 @@
   "version": "0.1.0",
   "author": "@kendallstraut",
   "scripts": {
-    "dev-next": "next",
-    "dev": "node server.js",
+    "dev": "next dev",
     "develop": "yarn dev",
     "build": "next build ",
     "start": "next start ",
