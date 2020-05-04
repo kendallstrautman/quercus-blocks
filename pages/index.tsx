@@ -29,9 +29,10 @@ function Index(props: IndexProps) {
   const { file, preview, title, description, infoBlurb } = props
   const formOptions = {
     label: 'Index Page',
+    fields: [{ name: 'title', component: 'text' }],
   }
 
-  const [, form] = useGithubJsonForm(file, formOptions)
+  const [data, form] = useGithubJsonForm(file, formOptions)
 
   useGithubToolbarPlugins()
 
@@ -43,6 +44,7 @@ function Index(props: IndexProps) {
       infoBlurb={infoBlurb}
     >
       <ModalProvider>
+        <h1>{data.title}</h1>
         <InlineForm form={form as Form}>
           <IndexBlocks editMode={preview} />
         </InlineForm>
