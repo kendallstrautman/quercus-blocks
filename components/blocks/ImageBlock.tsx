@@ -2,8 +2,10 @@ import { BlocksControls, BlockImage } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
 
 export function Image({ data, index }) {
+  const { width, align } = data
+
   /*
-   ** Makes it so far left / right images bleed
+   ** Forces far left / right images bleed
    ** to very edge of page beyond grid margins
    */
   function getWidth() {
@@ -11,15 +13,14 @@ export function Image({ data, index }) {
       (data.col_end === 5 || data.col_start === 1) && 'calc(100% + 20px)'
     return width
   }
+
   function getTranslateX() {
     const translateX = data.col_start === 1 && 'translateX(-20px)'
     return translateX
   }
-  const { width, align } = data
+
   const position = getPosition(width, align)
-  /*
-   ** TODO: Need inline image field here
-   */
+
   return (
     <>
       <div>
@@ -60,8 +61,6 @@ export const image_template = {
     alt: '',
     position: 'right',
     width: 'large',
-    // col_start: 2,
-    // col_end: 4,
   },
   key: undefined,
   fields: [
@@ -82,17 +81,5 @@ export const image_template = {
       label: 'Alt Text',
       component: 'text',
     },
-    // {
-    //   name: 'col_start',
-    //   label: 'Column Start',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
-    // {
-    //   name: 'col_end',
-    //   label: 'Column End',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
   ],
 }

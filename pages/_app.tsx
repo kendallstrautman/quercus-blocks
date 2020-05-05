@@ -19,7 +19,6 @@ export default class Site extends App {
         }),
       },
       sidebar: {
-        position: 'overlay',
         hidden: true,
       },
       toolbar: {

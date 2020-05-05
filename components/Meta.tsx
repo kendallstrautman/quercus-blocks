@@ -16,6 +16,7 @@ export default function Meta(props: MetaProps) {
       </Head>
       <style jsx global>
         {`
+          /* RESET -----------------------------------------*/
           * {
             box-sizing: inherit;
           }
@@ -150,7 +151,7 @@ export default function Meta(props: MetaProps) {
           }
 
            {
-            /* //TYPOGRAPHY------------------------------------- */
+            /* TYPOGRAPHY------------------------------------- */
           }
 
           h1,
