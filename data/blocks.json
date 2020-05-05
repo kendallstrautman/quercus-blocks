@@ -20,7 +20,7 @@
     },
     {
       "_template": "image",
-      "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
+      "src": "https://raw.githubusercontent.com/kendallstrautman/quercus-blocks/master/iceland-6.jpg",
       "alt": "",
       "width": "Wide",
       "align": "Right"
