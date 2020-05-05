@@ -39,13 +39,13 @@ export const body_copy_template = {
       name: 'width',
       label: 'Width',
       component: 'select',
-      options: ['narrow', 'medium', 'wide', 'fullwidth'],
+      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
       name: 'align',
       label: 'Alignment',
       component: 'select',
-      options: ['left', 'right', 'center'],
+      options: ['Left', 'Right', 'Center'],
     },
   ],
 }

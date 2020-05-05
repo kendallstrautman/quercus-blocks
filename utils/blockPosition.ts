@@ -1,40 +1,35 @@
-interface PositionProps {
-  colStart: number
-  colEnd: number
-}
-
 export function getPosition(
-  width: 'narrow' | 'medium' | 'wide' | 'fullwidth',
-  align: 'left' | 'right' | 'center'
+  width: 'Narrow' | 'Medium' | 'Wide' | 'Fullwidth',
+  align: 'Left' | 'Right' | 'Center'
 ) {
   // defaults to full width
-  const position: PositionProps = {
+  const position = {
     colStart: 1,
     colEnd: 5,
   }
-  const isLeft = align === 'left'
+  const isLeft = align === 'Left'
 
   // return early if center or full
-  if (width === 'fullwidth') return position
-  if (align === 'center')
+  if (width === 'Fullwidth') return position
+  if (align === 'Center')
     return {
       colStart: 2,
       colEnd: 4,
     }
 
   switch (align) {
-    case 'left': {
+    case 'Left': {
       position.colStart = 1
       break
     }
-    case 'right': {
+    case 'Right': {
       position.colEnd = 5
       break
     }
   }
 
   switch (width) {
-    case 'narrow': {
+    case 'Narrow': {
       if (isLeft) {
         position.colEnd = 2
       } else {
@@ -42,7 +37,7 @@ export function getPosition(
       }
       break
     }
-    case 'medium': {
+    case 'Medium': {
       if (isLeft) {
         position.colEnd = 3
       } else {
@@ -50,7 +45,7 @@ export function getPosition(
       }
       break
     }
-    case 'wide': {
+    case 'Wide': {
       if (isLeft) {
         position.colEnd = 4
       } else {
@@ -61,8 +56,4 @@ export function getPosition(
   }
 
   return position
-}
-
-export function areColumnsSet(colStart, colEnd) {
-  return typeof colStart === 'number' && typeof colEnd === 'number'
 }
