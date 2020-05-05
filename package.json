@@ -4,7 +4,7 @@
   "description": "A simple demo to demonstrate TinaCMS blocks & open authoring with Next.js",
   "license": "",
   "version": "0.1.0",
-  "author": "@kendallstraut",
+  "author": "Kendall Strautman",
   "scripts": {
     "dev": "next dev",
     "develop": "yarn dev",
@@ -14,14 +14,11 @@
     "deploy": "yarn build && yarn export"
   },
   "dependencies": {
-    "@tinacms/form-builder": "^0.3.1",
     "dotenv": "^8.2.0",
-    "final-form": "^4.18.7",
     "moment": "^2.24.0",
     "next": "9.3.6",
     "next-svgr": "^0.0.2",
     "next-tinacms-github": "0.1.0",
-    "next-tinacms-json": "^0.3.11",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -30,7 +27,6 @@
     "react-is": "^16.13.0",
     "react-markdown": "^4.3.1",
     "react-textarea-autosize": "^7.1.2",
-    "react-tinacms": "^0.9.19",
     "react-tinacms-editor": "^0.4.0",
     "react-tinacms-github": "0.2.0",
     "react-tinacms-inline": "^0.4.4",
@@ -45,10 +41,11 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "nextjs"
+    "nextjs",
+    "tinacms"
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/kendallstrautman/quercus-blocks"
   }
 }
