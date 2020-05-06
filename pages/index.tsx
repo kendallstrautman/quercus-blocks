@@ -8,7 +8,7 @@ import {
   useGithubJsonForm,
   useGithubToolbarPlugins,
 } from 'react-tinacms-github'
-import { ModalProvider, Form } from 'tinacms'
+import { ModalProvider, Form, useCMS } from 'tinacms'
 import { InlineForm, InlineImageField } from 'react-tinacms-inline'
 
 import Layout from '../components/Layout'
@@ -36,6 +36,8 @@ function Index(props: IndexProps) {
 
   useGithubToolbarPlugins()
 
+  const cms = useCMS()
+
   return (
     <Layout
       editMode={preview}
@@ -48,8 +50,15 @@ function Index(props: IndexProps) {
           <InlineImageField
             name="hero"
             previewSrc={formValues => {
-              console.log('form values!', formValues)
-              return 'some-path.jpg'
+              const workingRepository = cms.api.github.workingRepoFullName
+              /**
+               * TODO: this getter causes stack overflow
+               * Once that's fixed, update 'master' in src path
+               * to ${branchName}
+               *  */
+
+              // const branchName = cms.api.github.branchName
+              return `https://raw.githubusercontent.com/${workingRepository}/add-media/public${formValues.hero}`
             }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
