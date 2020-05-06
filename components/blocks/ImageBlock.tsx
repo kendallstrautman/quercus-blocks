@@ -27,6 +27,7 @@ export function Image({ data, index }) {
         <BlocksControls index={index}>
           <BlockImage
             name="src"
+            // TODO: update this stub once block images work
             previewSrc={() => 'some-file.jpg'}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
