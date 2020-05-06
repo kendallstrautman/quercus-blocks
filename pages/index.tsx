@@ -9,7 +9,7 @@ import {
   useGithubToolbarPlugins,
 } from 'react-tinacms-github'
 import { ModalProvider, Form } from 'tinacms'
-import { InlineForm } from 'react-tinacms-inline'
+import { InlineForm, InlineImageField } from 'react-tinacms-inline'
 
 import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
@@ -45,6 +45,15 @@ function Index(props: IndexProps) {
     >
       <ModalProvider>
         <InlineForm form={form as Form}>
+          <InlineImageField
+            name="hero"
+            previewSrc={formValues => {
+              console.log('form values!', formValues)
+              return 'some-path.jpg'
+            }}
+            parse={filename => `/img/${filename}`}
+            uploadDir={() => '/public/img/'}
+          />
           <IndexBlocks editMode={preview} />
         </InlineForm>
       </ModalProvider>
