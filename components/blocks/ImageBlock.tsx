@@ -1,5 +1,6 @@
 import { BlocksControls, BlockImage } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
+import { useCMS } from 'tinacms'
 
 export function Image({ data, index }) {
   const { width, align } = data
@@ -20,6 +21,8 @@ export function Image({ data, index }) {
   }
 
   const position = getPosition(width, align)
+
+  const cms = useCMS()
 
   return (
     <>
