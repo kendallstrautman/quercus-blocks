@@ -1,4 +1,5 @@
 {
+  "hero": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
   "index_blocks": [
     {
       "_template": "heading_1",
@@ -20,7 +21,7 @@
     },
     {
       "_template": "image",
-      "src": "https://raw.githubusercontent.com/kendallstrautman/quercus-blocks/add-media/public/img/iceland-1.jpg",
+      "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
       "alt": "",
       "width": "Wide",
       "align": "Right"
