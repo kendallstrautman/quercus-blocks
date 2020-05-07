@@ -1,6 +1,6 @@
 # Bare-bones Nextjs starter
 
-**Next.js is incredible in its simplicity and flexibility;** there are less prescriptive guiderails placed on developers in the implementation of an app or site. 
+**Next.js is incredible in its simplicity and flexibility.**
 
 ## Clone the starter
 
