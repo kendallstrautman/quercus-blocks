@@ -37,6 +37,8 @@ function Index(props: IndexProps) {
   useGithubToolbarPlugins()
 
   const cms = useCMS()
+  const workingRepository = cms.api.github.workingRepoFullName
+  const currentBranch = cms.api.github.branchName
 
   return (
     <Layout
@@ -50,15 +52,7 @@ function Index(props: IndexProps) {
           <InlineImageField
             name="hero"
             previewSrc={formValues => {
-              const workingRepository = cms.api.github.workingRepoFullName
-              /**
-               * TODO: this getter causes stack overflow
-               * Once that's fixed, update 'master' in src path
-               * to ${branchName}
-               *  */
-
-              // const branchName = cms.api.github.branchName
-              return `https://raw.githubusercontent.com/${workingRepository}/add-media/public${formValues.hero}`
+              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${formValues.hero}`
             }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
