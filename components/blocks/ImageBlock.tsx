@@ -72,11 +72,28 @@ export const image_template = {
     _template: 'image',
     src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
     alt: '',
-    position: 'right',
-    width: 'large',
+    position: 'Right',
+    width: 'Large',
   },
   key: undefined,
   fields: [
+    // {
+    //   name: 'src',
+    //   label: 'Image',
+    //   component: 'image',
+    //   previewSrc: formValues => {
+    /** Todo: add a block context to access index within the settings modal */
+    //     const currentBlockImage = formValues.index_blocks[index].src
+    //     return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+    //   },
+    //   parse: filename => `/img/${filename}`,
+    //   uploadDir: () => '/public/img/'
+    // },
+    {
+      name: 'alt',
+      label: 'Alt Text',
+      component: 'text',
+    },
     {
       name: 'width',
       label: 'Width',
@@ -88,11 +105,6 @@ export const image_template = {
       label: 'Alignment',
       component: 'select',
       options: ['Left', 'Right', 'Center'],
-    },
-    {
-      name: 'alt',
-      label: 'Alt Text',
-      component: 'text',
     },
   ],
 }

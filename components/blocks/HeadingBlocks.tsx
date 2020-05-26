@@ -30,8 +30,8 @@ export const heading_1_template = {
     _template: 'heading_1',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    width: 'wide',
-    align: 'left',
+    width: 'Wide',
+    align: 'Left',
   },
   key: undefined,
   fields: [
@@ -79,8 +79,8 @@ export const heading_2_template = {
     _template: 'heading_2',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    width: 'medium',
-    align: 'center',
+    width: 'Medium',
+    align: 'Center',
   },
   key: undefined,
   fields: [
