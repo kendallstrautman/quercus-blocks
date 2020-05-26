@@ -3,7 +3,7 @@ import { BlocksControls, BlockImage } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
 
 export function Image({ data, index }) {
-  const { width, align } = data
+  const { width, align, src } = data
 
   /*
    ** Forces far left / right images bleed
@@ -38,7 +38,11 @@ export function Image({ data, index }) {
             }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
-          />
+          >
+            {() => {
+              return <img src={src} />
+            }}
+          </BlockImage>
         </BlocksControls>
       </div>
       <style jsx>{`
