@@ -39,8 +39,8 @@ export function Image({ data, index }) {
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
           >
-            {() => {
-              return <img src={data.src} />
+            {props => {
+              return <img src={props?.previewSrc || data.src} alt={data.alt} />
             }}
           </BlockImage>
         </BlocksControls>
