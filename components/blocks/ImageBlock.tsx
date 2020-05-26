@@ -1,6 +1,5 @@
 import { BlocksControls, BlockImage } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
-import { useCMS } from 'tinacms'
 
 export function Image({ data, index }) {
   const { width, align } = data
@@ -22,15 +21,13 @@ export function Image({ data, index }) {
 
   const position = getPosition(width, align)
 
-  const cms = useCMS()
-
   return (
     <>
       <div>
         <BlocksControls index={index}>
           <BlockImage
             name="src"
-            // TODO: update this stub once block images work
+            // TODO: update dummy preview src
             previewSrc={() => 'some-file.jpg'}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
