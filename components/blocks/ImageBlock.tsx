@@ -1,3 +1,4 @@
+import { useCMS } from 'tinacms'
 import { BlocksControls, BlockImage } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
 
@@ -21,14 +22,20 @@ export function Image({ data, index }) {
 
   const position = getPosition(width, align)
 
+  const cms = useCMS()
+  const workingRepository = cms.api.github.workingRepoFullName
+  const currentBranch = cms.api.github.branchName
+
   return (
     <>
       <div>
         <BlocksControls index={index}>
           <BlockImage
             name="src"
-            // TODO: update dummy preview src
-            previewSrc={() => 'some-file.jpg'}
+            previewSrc={formValues => {
+              const currentBlockImage = formValues.index_blocks[index].src
+              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+            }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
           />
