@@ -3,7 +3,7 @@ import { BlocksControls, BlockImage } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
 
 export function Image({ data, index }) {
-  const { width, align, src } = data
+  const { width, align } = data
 
   /*
    ** Forces far left / right images bleed
@@ -11,12 +11,12 @@ export function Image({ data, index }) {
    */
   function getWidth() {
     const width =
-      (data.col_end === 5 || data.col_start === 1) && 'calc(100% + 20px)'
+      (data.align === 'Left' || data.align === 'Right') && 'calc(100% + 20px)'
     return width
   }
 
   function getTranslateX() {
-    const translateX = data.col_start === 1 && 'translateX(-20px)'
+    const translateX = data.align === 'Left' && 'translateX(-20px)'
     return translateX
   }
 
@@ -40,7 +40,7 @@ export function Image({ data, index }) {
             uploadDir={() => '/public/img/'}
           >
             {() => {
-              return <img src={src} />
+              return <img src={data.src} />
             }}
           </BlockImage>
         </BlocksControls>
