@@ -32,8 +32,6 @@ export const body_copy_template = {
       'What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.',
     width: 'medium',
     align: 'center',
-    // col_start: 2,
-    // col_end: 3,
   },
   key: 'body-copy',
   fields: [
@@ -41,25 +39,13 @@ export const body_copy_template = {
       name: 'width',
       label: 'Width',
       component: 'select',
-      options: ['narrow', 'medium', 'wide', 'fullwidth'],
+      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
       name: 'align',
       label: 'Alignment',
       component: 'select',
-      options: ['left', 'right', 'center'],
+      options: ['Left', 'Right', 'Center'],
     },
-    // {
-    //   name: 'col_start',
-    //   label: 'Column Start',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
-    // {
-    //   name: 'col_end',
-    //   label: 'Column End',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
   ],
 }

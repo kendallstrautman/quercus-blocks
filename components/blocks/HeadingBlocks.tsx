@@ -32,8 +32,6 @@ export const heading_1_template = {
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
     width: 'wide',
     align: 'left',
-    // col_start: 1,
-    // col_end: 4,
   },
   key: undefined,
   fields: [
@@ -41,26 +39,14 @@ export const heading_1_template = {
       name: 'width',
       label: 'Width',
       component: 'select',
-      options: ['narrow', 'medium', 'wide', 'fullwidth'],
+      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
       name: 'align',
       label: 'Alignment',
       component: 'select',
-      options: ['left', 'right', 'center'],
+      options: ['Left', 'Right', 'Center'],
     },
-    // {
-    //   name: 'col_start',
-    //   label: 'Column Start',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
-    // {
-    //   name: 'col_end',
-    //   label: 'Column End',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
   ],
 }
 
@@ -95,8 +81,6 @@ export const heading_2_template = {
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
     width: 'medium',
     align: 'center',
-    // col_start: 2,
-    // col_end: 4,
   },
   key: undefined,
   fields: [
@@ -104,25 +88,13 @@ export const heading_2_template = {
       name: 'width',
       label: 'Width',
       component: 'select',
-      options: ['narrow', 'medium', 'wide', 'fullwidth'],
+      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
       name: 'align',
       label: 'Alignment',
       component: 'select',
-      options: ['left', 'right', 'center'],
+      options: ['Left', 'Right', 'Center'],
     },
-    // {
-    //   name: 'col_start',
-    //   label: 'Column Start',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
-    // {
-    //   name: 'col_end',
-    //   label: 'Column End',
-    //   component: 'select',
-    //   options: [1, 2, 3, 4, 5],
-    // },
   ],
 }

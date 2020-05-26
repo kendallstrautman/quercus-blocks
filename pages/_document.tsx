@@ -1,6 +1,10 @@
 import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
+/**
+ * So the Tina UI styles can load in production
+ */
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()

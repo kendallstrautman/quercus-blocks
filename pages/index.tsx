@@ -8,8 +8,8 @@ import {
   useGithubJsonForm,
   useGithubToolbarPlugins,
 } from 'react-tinacms-github'
-import { ModalProvider, Form } from 'tinacms'
-import { InlineForm } from 'react-tinacms-inline'
+import { ModalProvider, Form, useCMS } from 'tinacms'
+import { InlineForm, InlineImageField } from 'react-tinacms-inline'
 
 import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
@@ -36,6 +36,10 @@ function Index(props: IndexProps) {
 
   useGithubToolbarPlugins()
 
+  const cms = useCMS()
+  const workingRepository = cms.api.github.workingRepoFullName
+  const currentBranch = cms.api.github.branchName
+
   return (
     <Layout
       editMode={preview}
@@ -45,6 +49,14 @@ function Index(props: IndexProps) {
     >
       <ModalProvider>
         <InlineForm form={form as Form}>
+          <InlineImageField
+            name="hero"
+            previewSrc={formValues => {
+              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${formValues.hero}`
+            }}
+            parse={filename => `/img/${filename}`}
+            uploadDir={() => '/public/img/'}
+          />
           <IndexBlocks editMode={preview} />
         </InlineForm>
       </ModalProvider>

@@ -1,12 +1,11 @@
 {
+  "hero": "/img/iceland-5.jpg",
   "index_blocks": [
     {
       "_template": "heading_1",
       "text": "Wherever I sat, there I might live, and the landscape radiated from me accordingly.",
-      "width": "wide",
-      "align": "left",
-      "col_start": 1,
-      "col_end": 4
+      "width": "Wide",
+      "align": "Left"
     },
     {
       "_template": "spacer"
@@ -14,10 +13,8 @@
     {
       "_template": "body_copy",
       "text": "What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.",
-      "width": "narrow",
-      "align": "right",
-      "col_start": 4,
-      "col_end": 5
+      "width": "Narrow",
+      "align": "Right"
     },
     {
       "_template": "spacer"
@@ -26,10 +23,8 @@
       "_template": "image",
       "src": "/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg",
       "alt": "",
-      "width": "wide",
-      "align": "right",
-      "col_start": 2,
-      "col_end": 5
+      "width": "Wide",
+      "align": "Right"
     },
     {
       "_template": "spacer"
@@ -38,10 +33,8 @@
       "_template": "image",
       "src": "/img/charlota-blunarova-LV0N2drB_BI-unsplash__SM.jpg",
       "alt": "",
-      "width": "medium",
-      "align": "left",
-      "col_start": 1,
-      "col_end": 3
+      "width": "Medium",
+      "align": "Left"
     },
     {
       "_template": "spacer"
@@ -49,18 +42,14 @@
     {
       "_template": "heading_1",
       "text": "A man is rich in proportion to the number of things which he can afford to let alone.",
-      "width": "wide",
-      "align": "right",
-      "col_start": 2,
-      "col_end": 5
+      "width": "Wide",
+      "align": "Right"
     },
     {
       "_template": "body_copy",
-      "text": "Now, to speak the truth, I had but ten cents in the world, and it surpassed my arithmetic to tell, if I was that man who had ten cents, or who had a farm, or ten dollars, or all together. However, I let him keep the ten dollars and the farm too, for I had carried it far enough; or rather, to be generous, I sold him the farm for just what I gave for it, and, as he was not a rich man, made him a present of ten dollars, and still had my ten cents, and seeds, and materials for a wheelbarrow left. I found thus that I had been a rich man without any damage to my poverty. ",
-      "width": "medium",
-      "align": "center",
-      "col_start": 2,
-      "col_end": 4
+      "text": "Now, to speak the truth, I had but ten cents in the world, and it surpassed my arithmetic to tell, if I was that man who had ten cents, or who had a farm, or ten dollars, or all together. However, I let him keep the ten dollars and the farm too, for I had carried it far enough; or rather, to be generous, I sold him the farm for just what I gave for it, and, as he was not a rich man, made him a present of ten dollars, and still had my ten cents, and seeds, and materials for a wheelbarrow Left. I found thus that I had been a rich man without any damage to my poverty. ",
+      "width": "Medium",
+      "align": "Center"
     },
     {
       "_template": "spacer"
@@ -69,19 +58,15 @@
       "_template": "image",
       "src": "/img/nathan-dumlao-_GN1A0CNnrk-unsplash__SM.jpg",
       "alt": "",
-      "width": "medium",
-      "align": "right",
-      "col_start": 3,
-      "col_end": 5
+      "width": "Medium",
+      "align": "Right"
     },
     {
       "_template": "image",
       "src": "/img/cristian-morales-4Hkwd4sp5NE-unsplash__SM.jpg",
       "alt": "",
-      "width": "narrow",
-      "align": "left",
-      "col_start": 1,
-      "col_end": 2
+      "width": "Narrow",
+      "align": "Left"
     },
     {
       "_template": "spacer"
@@ -89,10 +74,8 @@
     {
       "_template": "heading_2",
       "text": "Well, there I might live, I said; and there I did live, for an hour, a summer and a winter life; saw how I could let the years run off, buffet the winter through, and see the spring come in. ",
-      "width": "medium",
-      "align": "right",
-      "col_start": 3,
-      "col_end": 5
+      "width": "Medium",
+      "align": "Right"
     },
     {
       "_template": "spacer"
