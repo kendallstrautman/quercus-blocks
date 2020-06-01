@@ -10,6 +10,7 @@ import {
 } from 'react-tinacms-github'
 import { ModalProvider, Form } from 'tinacms'
 import { InlineForm } from 'react-tinacms-inline'
+import { InlineWysiwyg } from 'react-tinacms-editor'
 
 import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
@@ -32,7 +33,8 @@ function Index(props: IndexProps) {
     fields: [{ name: 'title', component: 'text' }],
   }
 
-  const [, form] = useGithubJsonForm(file, formOptions)
+  const [data, form] = useGithubJsonForm(file, formOptions)
+  console.log({ form })
 
   useGithubToolbarPlugins()
 
@@ -45,6 +47,9 @@ function Index(props: IndexProps) {
     >
       <ModalProvider>
         <InlineForm form={form as Form}>
+          <InlineWysiwyg name="markdown" format="markdown">
+            {data.markdown}
+          </InlineWysiwyg>
           <IndexBlocks editMode={preview} />
         </InlineForm>
       </ModalProvider>
