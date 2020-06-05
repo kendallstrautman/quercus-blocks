@@ -1,12 +1,12 @@
 import { BlocksControls, BlockTextarea } from 'react-tinacms-inline'
 import { getPosition } from '../../utils'
+import { BlockProps } from './BodyCopyBlock'
 
-export function H1({ data, index }) {
-  const { width, align } = data
-  const position = getPosition(width, align)
+export function H1({ data, index }: BlockProps) {
+  const position = getPosition(data.position)
   return (
     <>
-      <h1>
+      <h1 className="block">
         <BlocksControls index={index}>
           <BlockTextarea name="text" />
         </BlocksControls>
@@ -30,19 +30,21 @@ export const heading_1_template = {
     _template: 'heading_1',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    width: 'Wide',
-    align: 'Left',
+    position: {
+      width: 'Wide',
+      align: 'Left',
+    },
   },
   key: undefined,
   fields: [
     {
-      name: 'width',
+      name: 'position.width',
       label: 'Width',
       component: 'select',
       options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
-      name: 'align',
+      name: 'position.align',
       label: 'Alignment',
       component: 'select',
       options: ['Left', 'Right', 'Center'],
@@ -50,12 +52,11 @@ export const heading_1_template = {
   ],
 }
 
-export function H2({ data, index }) {
-  const { width, align } = data
-  const position = getPosition(width, align)
+export function H2({ data, index }: BlockProps) {
+  const position = getPosition(data.position)
   return (
     <>
-      <h2>
+      <h2 className="block">
         <BlocksControls index={index}>
           <BlockTextarea name="text" />
         </BlocksControls>
@@ -79,19 +80,21 @@ export const heading_2_template = {
     _template: 'heading_2',
     text:
       'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    width: 'Medium',
-    align: 'Center',
+    position: {
+      width: 'Medium',
+      align: 'Center',
+    },
   },
   key: undefined,
   fields: [
     {
-      name: 'width',
+      name: 'position.width',
       label: 'Width',
       component: 'select',
       options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
-      name: 'align',
+      name: 'position.align',
       label: 'Alignment',
       component: 'select',
       options: ['Left', 'Right', 'Center'],

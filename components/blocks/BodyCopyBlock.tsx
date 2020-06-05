@@ -1,12 +1,16 @@
 import { BlocksControls, BlockTextarea } from 'react-tinacms-inline'
-import { getPosition } from '../../utils'
+import { getPosition, BlockPositionProps } from '../../utils'
 
-export function BodyCopy({ data, index }) {
-  const { width, align } = data
-  const position = getPosition(width, align)
+export interface BlockProps {
+  data: { position: BlockPositionProps }
+  index: number
+}
+
+export function BodyCopy({ data, index }: BlockProps) {
+  const position = getPosition(data.position)
   return (
     <>
-      <p>
+      <p className="block">
         <BlocksControls index={index}>
           <BlockTextarea name="text" />
         </BlocksControls>
@@ -30,19 +34,21 @@ export const body_copy_template = {
     _template: 'body_copy',
     text:
       'What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.',
-    width: 'Medium',
-    align: 'Center',
+    position: {
+      width: 'Medium',
+      align: 'Center',
+    },
   },
   key: 'body-copy',
   fields: [
     {
-      name: 'width',
+      name: 'position.width',
       label: 'Width',
       component: 'select',
       options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
-      name: 'align',
+      name: 'position.align',
       label: 'Alignment',
       component: 'select',
       options: ['Left', 'Right', 'Center'],
