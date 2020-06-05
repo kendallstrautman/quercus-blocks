@@ -1,7 +1,9 @@
-export function getPosition(
-  width: 'Narrow' | 'Medium' | 'Wide' | 'Fullwidth',
+export interface BlockPositionProps {
+  width: 'Narrow' | 'Medium' | 'Wide' | 'Fullwidth'
   align: 'Left' | 'Right' | 'Center'
-) {
+}
+
+export function getPosition({ width, align }: BlockPositionProps) {
   // defaults to full width
   const position = {
     colStart: 1,
