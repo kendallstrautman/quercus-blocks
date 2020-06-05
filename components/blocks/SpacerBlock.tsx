@@ -1,11 +1,11 @@
 import { BlocksControls } from 'react-tinacms-inline'
 
-export function Spacer({ data, index }) {
+export function Spacer({ index }: { index: number }) {
   // TODO: add dynamic spacer sizes
   //TODO: add edit mode text to note that this is a spacer
   return (
     <>
-      <div className="spacer">
+      <div className="spacer block">
         <BlocksControls index={index}>
           <span></span>
         </BlocksControls>
