@@ -20,7 +20,7 @@ export default class Site extends App {
     })
 
     this.cms = new TinaCMS({
-      enabled: !props.pageProps.preview,
+      enabled: props.pageProps.preview,
       apis: {
         github: client,
       },
