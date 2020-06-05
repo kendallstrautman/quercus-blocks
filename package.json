@@ -14,6 +14,7 @@
     "deploy": "yarn build && yarn export"
   },
   "dependencies": {
+    "@tinacms/webpack-helpers": "^0.1.0",
     "dotenv": "^8.2.0",
     "moment": "^2.24.0",
     "next": "9.3.6",
@@ -26,11 +27,11 @@
     "react-final-form": "^6.3.5",
     "react-is": "^16.13.0",
     "react-textarea-autosize": "^7.1.2",
-    "react-tinacms-editor": "^0.4.0",
+    "react-tinacms-editor": "^0.7.2-alpha.2",
     "react-tinacms-github": "0.4.0",
-    "react-tinacms-inline": "^0.5.0",
+    "react-tinacms-inline": "^0.6.0-alpha.2",
     "styled-components": "^5.0.1",
-    "tinacms": "0.20.0",
+    "tinacms": "0.21.0-alpha.1",
     "typescript": "^3.8.2",
     "webpack": "^4.41.6"
   },

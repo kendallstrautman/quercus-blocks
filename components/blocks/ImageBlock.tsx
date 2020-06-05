@@ -1,26 +1,32 @@
 import { useCMS } from 'tinacms'
 import { BlocksControls, BlockImage } from 'react-tinacms-inline'
-import { getPosition } from '../../utils'
+import { getPosition, BlockPositionProps } from '../../utils'
+import { BlockProps } from './BodyCopyBlock'
 
-export function Image({ data, index }) {
-  const { width, align } = data
+interface ImageBlockProps extends BlockProps {
+  data: {
+    src: string
+    alt: string
+    position: BlockPositionProps
+  }
+}
+
+export function Image({ data, index }: ImageBlockProps) {
+  const { align } = data.position
 
   /*
    ** Forces far left / right images bleed
    ** to very edge of page beyond grid margins
    */
   function getWidth() {
-    const width =
-      (data.align === 'Left' || data.align === 'Right') && 'calc(100% + 20px)'
-    return width
+    return (align === 'Left' || align === 'Right') && 'calc(100% + 20px)'
   }
 
   function getTranslateX() {
-    const translateX = data.align === 'Left' && 'translateX(-20px)'
-    return translateX
+    return align === 'Left' && 'translateX(-20px)'
   }
 
-  const position = getPosition(width, align)
+  const position = getPosition(data.position)
 
   const cms = useCMS()
   const workingRepository = cms.api.github.workingRepoFullName
@@ -28,7 +34,7 @@ export function Image({ data, index }) {
 
   return (
     <>
-      <div>
+      <div className="block">
         <BlocksControls index={index}>
           <BlockImage
             name="src"
@@ -72,8 +78,10 @@ export const image_template = {
     _template: 'image',
     src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
     alt: '',
-    position: 'Right',
-    width: 'Large',
+    position: {
+      align: 'Right',
+      width: 'Large',
+    },
   },
   key: undefined,
   fields: [
@@ -95,13 +103,13 @@ export const image_template = {
       component: 'text',
     },
     {
-      name: 'width',
+      name: 'position.width',
       label: 'Width',
       component: 'select',
       options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
     },
     {
-      name: 'align',
+      name: 'position.align',
       label: 'Alignment',
       component: 'select',
       options: ['Left', 'Right', 'Center'],
