@@ -1,6 +1,6 @@
 import { useCMS } from 'tinacms'
-import { BlocksControls, BlockImage } from 'react-tinacms-inline'
-import { getPosition, BlockPositionProps } from '../../utils'
+import { BlocksControls, InlineImage } from 'react-tinacms-inline'
+import { getPosition, BlockPositionProps, getBlockIndex } from '../../utils'
 import { BlockProps } from './BodyCopyBlock'
 
 interface ImageBlockProps extends BlockProps {
@@ -36,11 +36,11 @@ export function Image({ data, index }: ImageBlockProps) {
     <>
       <div className="block">
         <BlocksControls index={index}>
-          <BlockImage
+          <InlineImage
             name="src"
             previewSrc={formValues => {
-              const currentBlockImage = formValues.index_blocks[index].src
-              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+              const currentBlock = formValues.index_blocks[index].src
+              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlock}`
             }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
@@ -48,7 +48,7 @@ export function Image({ data, index }: ImageBlockProps) {
             {props => {
               return <img src={props?.previewSrc || data.src} alt={data.alt} />
             }}
-          </BlockImage>
+          </InlineImage>
         </BlocksControls>
       </div>
       <style jsx>{`
@@ -85,18 +85,22 @@ export const image_template = {
   },
   key: undefined,
   fields: [
-    // {
-    //   name: 'src',
-    //   label: 'Image',
-    //   component: 'image',
-    //   previewSrc: formValues => {
-    /** Todo: add a block context to access index within the settings modal */
-    //     const currentBlockImage = formValues.index_blocks[index].src
-    //     return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
-    //   },
-    //   parse: filename => `/img/${filename}`,
-    //   uploadDir: () => '/public/img/'
-    // },
+    {
+      name: 'src',
+      label: 'Image',
+      component: 'image',
+      previewSrc: (formValues, input) => {
+        /** Todo: add a block context to access index within the settings modal */
+        const cms = useCMS()
+        const index = getBlockIndex(input.field)
+        const currentBlockImage = formValues.index_blocks[index].src
+        const workingRepository = cms.api.github.workingRepoFullName
+        const currentBranch = cms.api.github.branchName
+        return `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+      },
+      parse: filename => `/img/${filename}`,
+      uploadDir: () => '/public/img/',
+    },
     {
       name: 'alt',
       label: 'Alt Text',
