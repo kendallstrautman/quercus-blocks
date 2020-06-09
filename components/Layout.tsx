@@ -23,6 +23,11 @@ export default function Layout(props: LayoutProps) {
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
+            scrollbar-width: none;
+          }
+
+          ::webkit-scrollbar {
+            display: none;
           }
         `}
       </style>
