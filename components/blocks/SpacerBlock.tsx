@@ -1,8 +1,12 @@
 import { BlocksControls } from 'react-tinacms-inline'
+import { getSpacerSize } from '../../utils'
 
-export function Spacer({ index }: { index: number }) {
-  // TODO: add dynamic spacer sizes
-  //TODO: add edit mode text to note that this is a spacer
+interface SpacerProps {
+  index: number
+  data: { size: string }
+}
+
+export function Spacer({ index, data }: SpacerProps) {
   return (
     <>
       <div className="spacer block">
@@ -12,13 +16,17 @@ export function Spacer({ index }: { index: number }) {
       </div>
       <style jsx>{`
         div.spacer {
-          height: var(--med);
           grid-column: span 4;
           grid-column-row: ${index + 1};
         }
+
+        div.spacer span {
+          height: ${getSpacerSize(data.size)};
+          display: inline-block;
+        }
         @media (min-width: 1200px) {
-          div.spacer {
-            height: var(--lrg);
+          div.spacer span {
+            height: ${getSpacerSize(data.size)};
           }
         }
       `}</style>
@@ -31,8 +39,15 @@ export const spacer_template = {
   label: 'Spacer',
   defaultItem: {
     _template: 'spacer',
+    size: 'Medium',
   },
   key: undefined,
-  // todo add fields here for sizing etc.
-  fields: [],
+  fields: [
+    {
+      name: 'size',
+      label: 'Spacer Size',
+      component: 'select',
+      options: ['Small', 'Medium', 'Large'],
+    },
+  ],
 }

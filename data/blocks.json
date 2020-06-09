@@ -11,7 +11,8 @@
       }
     },
     {
-      "_template": "spacer"
+      "_template": "spacer",
+      "size": "Medium"
     },
     {
       "_template": "body_copy",
@@ -22,7 +23,8 @@
       }
     },
     {
-      "_template": "spacer"
+      "_template": "spacer",
+      "size": "Medium"
     },
     {
       "_template": "image",
@@ -34,7 +36,8 @@
       }
     },
     {
-      "_template": "spacer"
+      "_template": "spacer",
+      "size": "Medium"
     },
     {
       "_template": "image",
@@ -46,7 +49,8 @@
       }
     },
     {
-      "_template": "spacer"
+      "_template": "spacer",
+      "size": "Medium"
     },
     {
       "_template": "heading_1",
@@ -65,7 +69,8 @@
       }
     },
     {
-      "_template": "spacer"
+      "_template": "spacer",
+      "size": "Medium"
     },
     {
       "_template": "image",
@@ -86,7 +91,8 @@
       }
     },
     {
-      "_template": "spacer"
+      "_template": "spacer",
+      "size": "Medium"
     },
     {
       "_template": "heading_2",
@@ -97,7 +103,8 @@
       }
     },
     {
-      "_template": "spacer"
+      "_template": "spacer",
+      "size": "Medium"
     }
   ]
 }
