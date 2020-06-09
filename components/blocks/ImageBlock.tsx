@@ -44,6 +44,7 @@ export function Image({ data, index }: ImageBlockProps) {
             }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
+            focusRing={false}
           >
             {props => {
               return <img src={props?.previewSrc || data.src} alt={data.alt} />
