@@ -1,4 +1,4 @@
-import { BlocksControls, BlockTextarea } from 'react-tinacms-inline'
+import { BlocksControls, InlineTextarea } from 'react-tinacms-inline'
 import { getPosition, BlockPositionProps } from '../../utils'
 
 export interface BlockProps {
@@ -12,7 +12,7 @@ export function BodyCopy({ data, index }: BlockProps) {
     <>
       <p className="block">
         <BlocksControls index={index}>
-          <BlockTextarea name="text" />
+          <InlineTextarea name="text" />
         </BlocksControls>
       </p>
 
