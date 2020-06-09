@@ -1,6 +1,11 @@
 import { useCMS } from 'tinacms'
 import { BlocksControls, InlineImage } from 'react-tinacms-inline'
-import { getPosition, BlockPositionProps, getBlockIndex } from '../../utils'
+import {
+  getPosition,
+  BlockPositionProps,
+  GridColumnProps,
+  getBlockIndex,
+} from '../../utils'
 import { BlockProps } from './BodyCopyBlock'
 
 interface ImageBlockProps extends BlockProps {
@@ -18,15 +23,15 @@ export function Image({ data, index }: ImageBlockProps) {
    ** Forces far left / right images bleed
    ** to very edge of page beyond grid margins
    */
-  function getWidth() {
+  function getWidth(): string {
     return (align === 'Left' || align === 'Right') && 'calc(100% + 20px)'
   }
 
-  function getTranslateX() {
+  function getTranslateX(): string {
     return align === 'Left' && 'translateX(-20px)'
   }
 
-  const position = getPosition(data.position)
+  const gridCol: GridColumnProps = getPosition(data.position)
 
   const cms = useCMS()
   const workingRepository = cms.api.github.workingRepoFullName
@@ -54,8 +59,8 @@ export function Image({ data, index }: ImageBlockProps) {
       </div>
       <style jsx>{`
         div {
-          grid-column-start: ${position.colStart};
-          grid-column-end: ${position.colEnd};
+          grid-column-start: ${gridCol.colStart};
+          grid-column-end: ${gridCol.colEnd};
           grid-row-start: ${index + 1};
           width: ${getWidth()};
           transform: ${getTranslateX()};
@@ -91,10 +96,9 @@ export const image_template = {
       label: 'Image',
       component: 'image',
       previewSrc: (formValues, input) => {
-        /** Todo: add a block context to access index within the settings modal */
         const cms = useCMS()
-        const index = getBlockIndex(input.field)
-        const currentBlockImage = formValues.index_blocks[index].src
+        const currentBlockImage =
+          formValues.index_blocks[getBlockIndex(input.field)].src
         const workingRepository = cms.api.github.workingRepoFullName
         const currentBranch = cms.api.github.branchName
         return `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`

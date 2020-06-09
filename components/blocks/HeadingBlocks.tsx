@@ -1,9 +1,9 @@
 import { BlocksControls, InlineTextarea } from 'react-tinacms-inline'
-import { getPosition } from '../../utils'
+import { getPosition, GridColumnProps } from '../../utils'
 import { BlockProps } from './BodyCopyBlock'
 
 export function H1({ data, index }: BlockProps) {
-  const position = getPosition(data.position)
+  const gridCol: GridColumnProps = getPosition(data.position)
   return (
     <>
       <h1 className="block">
@@ -14,8 +14,8 @@ export function H1({ data, index }: BlockProps) {
 
       <style jsx>{`
         h1 {
-          grid-column-start: ${position.colStart};
-          grid-column-end: ${position.colEnd};
+          grid-column-start: ${gridCol.colStart};
+          grid-column-end: ${gridCol.colEnd};
           grid-row-start: ${index + 1};
         }
       `}</style>
@@ -53,7 +53,7 @@ export const heading_1_template = {
 }
 
 export function H2({ data, index }: BlockProps) {
-  const position = getPosition(data.position)
+  const gridCol: GridColumnProps = getPosition(data.position)
   return (
     <>
       <h2 className="block">
@@ -64,8 +64,8 @@ export function H2({ data, index }: BlockProps) {
 
       <style jsx>{`
         h2 {
-          grid-column-start: ${position.colStart};
-          grid-column-end: ${position.colEnd};
+          grid-column-start: ${gridCol.colStart};
+          grid-column-end: ${gridCol.colEnd};
           grid-row-start: ${index + 1};
         }
       `}</style>

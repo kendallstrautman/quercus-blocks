@@ -3,7 +3,15 @@ export interface BlockPositionProps {
   align: 'Left' | 'Right' | 'Center'
 }
 
-export function getPosition({ width, align }: BlockPositionProps): object {
+export interface GridColumnProps {
+  colStart: number
+  colEnd: number
+}
+
+export function getPosition({
+  width,
+  align,
+}: BlockPositionProps): GridColumnProps {
   // defaults to full width
   const position = {
     colStart: 1,

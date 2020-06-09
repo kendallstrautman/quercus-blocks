@@ -1,5 +1,5 @@
 import { BlocksControls, InlineTextarea } from 'react-tinacms-inline'
-import { getPosition, BlockPositionProps } from '../../utils'
+import { getPosition, BlockPositionProps, GridColumnProps } from '../../utils'
 
 export interface BlockProps {
   data: { position: BlockPositionProps }
@@ -7,7 +7,7 @@ export interface BlockProps {
 }
 
 export function BodyCopy({ data, index }: BlockProps) {
-  const position = getPosition(data.position)
+  const gridCol: GridColumnProps = getPosition(data.position)
   return (
     <>
       <p className="block">
@@ -18,8 +18,8 @@ export function BodyCopy({ data, index }: BlockProps) {
 
       <style jsx>{`
         p {
-          grid-column-start: ${position.colStart};
-          grid-column-end: ${position.colEnd};
+          grid-column-start: ${gridCol.colStart};
+          grid-column-end: ${gridCol.colEnd};
           grid-row-start: ${index + 1};
         }
       `}</style>
