@@ -5,8 +5,8 @@ export interface SpacerSize {
 
 export function getSpacerSize(size: string): SpacerSize {
   const result: SpacerSize = {
-    mobile: '',
-    desktop: '',
+    mobile: 'var(--med)',
+    desktop: 'var(--lrg)',
   }
 
   switch (size) {
@@ -25,8 +25,6 @@ export function getSpacerSize(size: string): SpacerSize {
       result.desktop = `var(--lrg)`
       break
     }
-    default:
-      ;(result.mobile = `var(--med)`), (result.desktop = `var(--lrg)`)
   }
   return result
 }
