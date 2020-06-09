@@ -1,21 +1,32 @@
-export function getSpacerSize(size: string): string {
-  let result
+export interface SpacerSize {
+  mobile: string
+  desktop: string
+}
+
+export function getSpacerSize(size: string): SpacerSize {
+  const result: SpacerSize = {
+    mobile: '',
+    desktop: '',
+  }
 
   switch (size) {
     case 'Small': {
-      result = `var(--sm)`
+      result.mobile = `var(--xs)`
+      result.desktop = `var(--sm)`
       break
     }
     case 'Medium': {
-      result = `var(--med)`
+      result.mobile = `var(--sm)`
+      result.desktop = `var(--med)`
       break
     }
     case 'Large': {
-      result = `var(--lrg)`
+      result.mobile = `var(--med)`
+      result.desktop = `var(--lrg)`
       break
     }
     default:
-      result = `var(--med)`
+      ;(result.mobile = `var(--med)`), (result.desktop = `var(--lrg)`)
   }
   return result
 }

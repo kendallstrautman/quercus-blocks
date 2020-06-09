@@ -1,5 +1,5 @@
 import { BlocksControls } from 'react-tinacms-inline'
-import { getSpacerSize } from '../../utils'
+import { getSpacerSize, SpacerSize } from '../../utils'
 
 interface SpacerProps {
   index: number
@@ -7,6 +7,7 @@ interface SpacerProps {
 }
 
 export function Spacer({ index, data }: SpacerProps) {
+  const { mobile, desktop }: SpacerSize = getSpacerSize(data.size)
   return (
     <>
       <div className="spacer block">
@@ -21,12 +22,12 @@ export function Spacer({ index, data }: SpacerProps) {
         }
 
         div.spacer span {
-          height: ${getSpacerSize(data.size)};
+          height: ${mobile};
           display: inline-block;
         }
         @media (min-width: 1200px) {
           div.spacer span {
-            height: ${getSpacerSize(data.size)};
+            height: ${desktop};
           }
         }
       `}</style>
