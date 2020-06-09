@@ -15,6 +15,11 @@ module.exports = withSvgr({
       fs: 'empty',
     }
 
+    /**
+     * Uncomment this if testing tina packages in local development
+     * Update the path to your `tinacms` directory as needed
+     */
+
     // if (dev) {
     //   tinaWebpackHelpers.aliasTinaDev(config, '../../tinacms')
     // }
