@@ -2,7 +2,7 @@ import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 /**
- * So the Tina UI styles can load in production
+ * So the Tina UI styles (styled-components) can load in SSR
  */
 
 export default class MyDocument extends Document {
