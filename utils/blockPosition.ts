@@ -3,7 +3,7 @@ export interface BlockPositionProps {
   align: 'Left' | 'Right' | 'Center'
 }
 
-export function getPosition({ width, align }: BlockPositionProps) {
+export function getPosition({ width, align }: BlockPositionProps): object {
   // defaults to full width
   const position = {
     colStart: 1,

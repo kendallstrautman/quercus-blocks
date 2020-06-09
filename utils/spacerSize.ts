@@ -1,4 +1,4 @@
-export function getSpacerSize(size: string) {
+export function getSpacerSize(size: string): string {
   let result
 
   switch (size) {
