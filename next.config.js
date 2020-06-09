@@ -1,5 +1,6 @@
 const withSvgr = require('next-svgr')
 require('dotenv').config()
+const tinaWebpackHelpers = require('@tinacms/webpack-helpers')
 
 module.exports = withSvgr({
   env: {
@@ -9,10 +10,14 @@ module.exports = withSvgr({
     BASE_BRANCH: process.env.BASE_BRANCH,
   },
   exportTrailingSlash: true,
-  webpack: config => {
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.node = {
       fs: 'empty',
     }
+
+    // if (dev) {
+    //   tinaWebpackHelpers.aliasTinaDev(config, '../../tinacms')
+    // }
 
     return config
   },
