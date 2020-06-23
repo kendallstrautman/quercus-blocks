@@ -45,7 +45,7 @@ function Index(props: IndexProps) {
     >
       <ModalProvider>
         <InlineForm form={form as Form}>
-          <IndexBlocks editMode={preview} />
+          <IndexBlocks />
         </InlineForm>
       </ModalProvider>
     </Layout>
