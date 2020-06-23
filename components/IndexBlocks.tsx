@@ -14,24 +14,14 @@ import {
   spacer_template,
 } from './blocks'
 
-interface InlineBlocksProps {
-  editMode: boolean
-}
-
-export default function IndexBlocks({ editMode }: InlineBlocksProps) {
-  const { deactivate, activate } = useInlineForm()
-
-  function handleInlineEditMode() {
-    editMode ? activate() : deactivate()
-  }
-
-  useMemo(handleInlineEditMode, [editMode])
-
+export default function IndexBlocks() {
   return (
     <>
-      <div className="index-blocks">
-        <InlineBlocks name="index_blocks" blocks={INDEX_PAGE_BLOCKS} />
-      </div>
+      <InlineBlocks
+        name="index_blocks"
+        blocks={INDEX_PAGE_BLOCKS}
+        className="index-blocks"
+      />
       <style jsx global>{`
         div.index-blocks {
           padding: var(--lrg) var(--sm) var(--sm) var(--sm);
