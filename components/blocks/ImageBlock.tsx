@@ -96,12 +96,13 @@ export const image_template = {
       label: 'Image',
       component: 'image',
       previewSrc: (formValues, input) => {
-        const cms = useCMS()
         const currentBlockImage =
           formValues.index_blocks[getBlockIndex(input.field)].src
-        const workingRepository = cms.api.github.workingRepoFullName
-        const currentBranch = cms.api.github.branchName
-        return `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+        // const workingRepository = cms.api.github.workingRepoFullName
+        // const currentBranch = cms.api.github.branchName
+        // const src = `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+
+        return currentBlockImage
       },
       parse: filename => `/img/${filename}`,
       uploadDir: () => '/public/img/',
