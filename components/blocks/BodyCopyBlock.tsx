@@ -6,7 +6,7 @@ export interface BlockProps {
   index: number
 }
 
-export function BodyCopy({ data, index }: BlockProps) {
+function BodyCopy({ data, index }: BlockProps) {
   const gridCol: GridColumnProps = getPosition(data.position)
   return (
     <>
@@ -27,31 +27,34 @@ export function BodyCopy({ data, index }: BlockProps) {
   )
 }
 
-export const body_copy_template = {
-  type: 'body_copy',
-  label: 'Body Copy',
-  defaultItem: {
-    _template: 'body_copy',
-    text:
-      'What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.',
-    position: {
-      width: 'Medium',
-      align: 'Center',
+export const bodyCopyBlock = {
+  Component: BodyCopy,
+  template: {
+    type: 'body_copy',
+    label: 'Body Copy',
+    defaultItem: {
+      _template: 'body_copy',
+      text:
+        'What is a house but a sedes, a seat?—better if a country seat. I discovered many a site for a house not likely to be soon improved, which some might have thought too far from the village, but to my eyes the village was too far from it.',
+      position: {
+        width: 'Medium',
+        align: 'Center',
+      },
     },
+    key: 'body-copy',
+    fields: [
+      {
+        name: 'position.width',
+        label: 'Width',
+        component: 'select',
+        options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
+      },
+      {
+        name: 'position.align',
+        label: 'Alignment',
+        component: 'select',
+        options: ['Left', 'Right', 'Center'],
+      },
+    ],
   },
-  key: 'body-copy',
-  fields: [
-    {
-      name: 'position.width',
-      label: 'Width',
-      component: 'select',
-      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
-    },
-    {
-      name: 'position.align',
-      label: 'Alignment',
-      component: 'select',
-      options: ['Left', 'Right', 'Center'],
-    },
-  ],
 }

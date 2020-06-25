@@ -1,18 +1,13 @@
 import { InlineBlocks } from 'react-tinacms-inline'
+import { useCMS, TinaCMS } from 'tinacms'
 
 import {
-  BodyCopy,
-  body_copy_template,
-  H1,
-  heading_1_template,
-  H2,
-  heading_2_template,
-  Image,
-  createImageTemplate,
-  Spacer,
-  spacer_template,
+  h1Block,
+  h2Block,
+  createImageBlock,
+  spacerBlock,
+  bodyCopyBlock,
 } from './blocks'
-import { useCMS } from 'tinacms'
 
 export default function IndexBlocks() {
   const cms = useCMS()
@@ -55,31 +50,16 @@ export default function IndexBlocks() {
   )
 }
 
-function createPageBlocks(cms) {
+function createPageBlocks(cms: TinaCMS) {
   /**
    * We need access to the cms for the 
    * image config in the settings field
    */
   return {
-    heading_1: {
-      Component: H1,
-      template: heading_1_template,
-    },
-    heading_2: {
-      Component: H2,
-      template: heading_2_template,
-    },
-    body_copy: {
-      Component: BodyCopy,
-      template: body_copy_template,
-    },
-    image: {
-      Component: Image,
-      template: createImageTemplate(cms),
-    },
-    spacer: {
-      Component: Spacer,
-      template: spacer_template,
-    },
+    heading_1: h1Block,
+    heading_2: h2Block,
+    body_copy: bodyCopyBlock,
+    image: createImageBlock(cms),
+    spacer: spacerBlock,
   }
 }

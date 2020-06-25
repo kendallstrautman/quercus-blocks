@@ -2,7 +2,7 @@ import { BlocksControls, InlineTextarea } from 'react-tinacms-inline'
 import { getPosition, GridColumnProps } from '../../utils'
 import { BlockProps } from './BodyCopyBlock'
 
-export function H1({ data, index }: BlockProps) {
+function H1({ data, index }: BlockProps) {
   const gridCol: GridColumnProps = getPosition(data.position)
   return (
     <>
@@ -23,36 +23,39 @@ export function H1({ data, index }: BlockProps) {
   )
 }
 
-export const heading_1_template = {
-  type: 'heading_1',
-  label: 'Heading 1',
-  defaultItem: {
-    _template: 'heading_1',
-    text:
-      'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    position: {
-      width: 'Wide',
-      align: 'Left',
+export const h1Block = {
+  Component: H1,
+  template: {
+    type: 'heading_1',
+    label: 'Heading 1',
+    defaultItem: {
+      _template: 'heading_1',
+      text:
+        'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
+      position: {
+        width: 'Wide',
+        align: 'Left',
+      },
     },
+    key: undefined,
+    fields: [
+      {
+        name: 'position.width',
+        label: 'Width',
+        component: 'select',
+        options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
+      },
+      {
+        name: 'position.align',
+        label: 'Alignment',
+        component: 'select',
+        options: ['Left', 'Right', 'Center'],
+      },
+    ],
   },
-  key: undefined,
-  fields: [
-    {
-      name: 'position.width',
-      label: 'Width',
-      component: 'select',
-      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
-    },
-    {
-      name: 'position.align',
-      label: 'Alignment',
-      component: 'select',
-      options: ['Left', 'Right', 'Center'],
-    },
-  ],
 }
 
-export function H2({ data, index }: BlockProps) {
+function H2({ data, index }: BlockProps) {
   const gridCol: GridColumnProps = getPosition(data.position)
   return (
     <>
@@ -73,31 +76,34 @@ export function H2({ data, index }: BlockProps) {
   )
 }
 
-export const heading_2_template = {
-  type: 'heading_2',
-  label: 'Heading 2',
-  defaultItem: {
-    _template: 'heading_2',
-    text:
-      'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
-    position: {
-      width: 'Medium',
-      align: 'Center',
+export const h2Block = {
+  Component: H2,
+  template: {
+    type: 'heading_2',
+    label: 'Heading 2',
+    defaultItem: {
+      _template: 'heading_2',
+      text:
+        'Wherever I sat, there I might live, and the landscape radiated from me accordingly.',
+      position: {
+        width: 'Medium',
+        align: 'Center',
+      },
     },
+    key: undefined,
+    fields: [
+      {
+        name: 'position.width',
+        label: 'Width',
+        component: 'select',
+        options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
+      },
+      {
+        name: 'position.align',
+        label: 'Alignment',
+        component: 'select',
+        options: ['Left', 'Right', 'Center'],
+      },
+    ],
   },
-  key: undefined,
-  fields: [
-    {
-      name: 'position.width',
-      label: 'Width',
-      component: 'select',
-      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
-    },
-    {
-      name: 'position.align',
-      label: 'Alignment',
-      component: 'select',
-      options: ['Left', 'Right', 'Center'],
-    },
-  ],
 }

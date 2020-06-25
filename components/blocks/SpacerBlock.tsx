@@ -6,7 +6,7 @@ interface SpacerProps {
   data: { size: string }
 }
 
-export function Spacer({ index, data }: SpacerProps) {
+function Spacer({ index, data }: SpacerProps) {
   const { mobile, desktop }: SpacerSize = getSpacerSize(data.size)
   return (
     <>
@@ -35,20 +35,23 @@ export function Spacer({ index, data }: SpacerProps) {
   )
 }
 
-export const spacer_template = {
-  type: 'spacer',
-  label: 'Spacer',
-  defaultItem: {
-    _template: 'spacer',
-    size: 'Medium',
-  },
-  key: undefined,
-  fields: [
-    {
-      name: 'size',
-      label: 'Spacer Size',
-      component: 'select',
-      options: ['Small', 'Medium', 'Large'],
+export const spacerBlock = {
+  Component: Spacer,
+  template: {
+    type: 'spacer',
+    label: 'Spacer',
+    defaultItem: {
+      _template: 'spacer',
+      size: 'Medium',
     },
-  ],
+    key: undefined,
+    fields: [
+      {
+        name: 'size',
+        label: 'Spacer Size',
+        component: 'select',
+        options: ['Small', 'Medium', 'Large'],
+      },
+    ],
+  },
 }

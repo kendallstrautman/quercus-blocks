@@ -1,4 +1,4 @@
-import { useCMS } from 'tinacms'
+import { useCMS, TinaCMS } from 'tinacms'
 import { BlocksControls, InlineImage } from 'react-tinacms-inline'
 import {
   getPosition,
@@ -78,52 +78,55 @@ export function Image({ data, index }: ImageBlockProps) {
   )
 }
 
-export function createImageTemplate(cms) {
+export function createImageBlock(cms: TinaCMS) {
   return {
-    type: 'image',
-    label: 'Image',
-    defaultItem: {
-      _template: 'image',
-      src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
-      alt: '',
-      position: {
-        align: 'Right',
-        width: 'Large',
-      },
-    },
-    key: undefined,
-    fields: [
-      {
-        name: 'src',
-        label: 'Image',
-        component: 'image',
-        previewSrc: (formValues, input) => {
-          const currentBlockImage =
-            formValues.index_blocks[getBlockIndex(input.field)].src
-          const workingRepository = cms.api.github.workingRepoFullName
-          const currentBranch = cms.api.github.branchName
-          return `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+    Component: Image,
+    template: {
+      type: 'image',
+      label: 'Image',
+      defaultItem: {
+        _template: 'image',
+        src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
+        alt: '',
+        position: {
+          align: 'Right',
+          width: 'Large',
         },
-        parse: filename => `/img/${filename}`,
-        uploadDir: () => '/public/img/',
       },
-      {
-        name: 'alt',
-        label: 'Alt Text',
-        component: 'text',
-      },
-      {
-        name: 'position.width',
-        label: 'Width',
-        component: 'select',
-        options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
-      },
-      {
-        name: 'position.align',
-        label: 'Alignment',
-        component: 'select',
-        options: ['Left', 'Right', 'Center'],
-      },
-    ],
+      key: undefined,
+      fields: [
+        {
+          name: 'src',
+          label: 'Image',
+          component: 'image',
+          previewSrc: (formValues, input) => {
+            const currentBlockImage =
+              formValues.index_blocks[getBlockIndex(input.field)].src
+            const workingRepository = cms.api.github.workingRepoFullName
+            const currentBranch = cms.api.github.branchName
+            return `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+          },
+          parse: filename => `/img/${filename}`,
+          uploadDir: () => '/public/img/',
+        },
+        {
+          name: 'alt',
+          label: 'Alt Text',
+          component: 'text',
+        },
+        {
+          name: 'position.width',
+          label: 'Width',
+          component: 'select',
+          options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
+        },
+        {
+          name: 'position.align',
+          label: 'Alignment',
+          component: 'select',
+          options: ['Left', 'Right', 'Center'],
+        },
+      ],
+    },
   }
 }
