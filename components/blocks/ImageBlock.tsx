@@ -16,6 +16,20 @@ interface ImageBlockProps extends BlockProps {
   }
 }
 
+function provideGithubInfo() {
+  const cms = useCMS()
+  const workingRepository = cms.api.github.workingRepoFullName
+  const currentBranch = cms.api.github.branchName
+  console.log('ran')
+
+  return () => {
+    return {
+      workingRepository: cms.api.github.workingRepoFullName,
+      currentBranch: cms.api.github.branchName,
+    }
+  }
+}
+
 export function Image({ data, index }: ImageBlockProps) {
   const { align } = data.position
 
@@ -33,9 +47,19 @@ export function Image({ data, index }: ImageBlockProps) {
 
   const gridCol: GridColumnProps = getPosition(data.position)
 
-  const cms = useCMS()
-  const workingRepository = cms.api.github.workingRepoFullName
-  const currentBranch = cms.api.github.branchName
+  function provideGithubInfo() {
+    const cms = useCMS()
+    const workingRepository = cms.api.github.workingRepoFullName
+    const currentBranch = cms.api.github.branchName
+
+    return () => {
+      return {
+        workingRepository: cms.api.github.workingRepoFullName,
+        currentBranch: cms.api.github.branchName,
+      }
+    }
+  }
+  const github = provideGithubInfo()
 
   return (
     <>
@@ -45,7 +69,8 @@ export function Image({ data, index }: ImageBlockProps) {
             name="src"
             previewSrc={formValues => {
               const currentBlock = formValues.index_blocks[index].src
-              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlock}`
+              const repo = github()
+              return `https://raw.githubusercontent.com/${repo.workingRepository}/${repo.currentBranch}/public${currentBlock}`
             }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
@@ -96,13 +121,12 @@ export const image_template = {
       label: 'Image',
       component: 'image',
       previewSrc: (formValues, input) => {
+        const github = provideGithubInfo()
         const currentBlockImage =
           formValues.index_blocks[getBlockIndex(input.field)].src
         // const workingRepository = cms.api.github.workingRepoFullName
         // const currentBranch = cms.api.github.branchName
-        // const src = `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
-
-        return currentBlockImage
+        return `https:raw.githubusercontent.com/${github.workingRepository}/${github.currentBranch}/public${currentBlockImage}`
       },
       parse: filename => `/img/${filename}`,
       uploadDir: () => '/public/img/',
