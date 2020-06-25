@@ -56,6 +56,10 @@ export default function IndexBlocks() {
 }
 
 function createPageBlocks(cms) {
+  /**
+   * We need access to the cms for the 
+   * image config in the settings field
+   */
   return {
     heading_1: {
       Component: H1,
