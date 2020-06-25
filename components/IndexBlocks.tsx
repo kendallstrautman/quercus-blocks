@@ -49,7 +49,12 @@ export default function IndexBlocks() {
     </>
   )
 }
+
 function createPageBlocks(cms: TinaCMS) {
+  /**
+   * We need access to the cms for the 
+   * image config in the settings field
+   */
   return {
     heading_1: h1Block,
     heading_2: h2Block,
