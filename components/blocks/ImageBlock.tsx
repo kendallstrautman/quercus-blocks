@@ -126,7 +126,9 @@ export const image_template = {
           formValues.index_blocks[getBlockIndex(input.field)].src
         // const workingRepository = cms.api.github.workingRepoFullName
         // const currentBranch = cms.api.github.branchName
-        return `https:raw.githubusercontent.com/${github.workingRepository}/${github.currentBranch}/public${currentBlockImage}`
+        return `https:raw.githubusercontent.com/${github().workingRepository}/${
+          github().currentBranch
+        }/public${currentBlockImage}`
       },
       parse: filename => `/img/${filename}`,
       uploadDir: () => '/public/img/',
