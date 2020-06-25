@@ -1,5 +1,4 @@
-import { useMemo } from 'react'
-import { InlineBlocks, useInlineForm } from 'react-tinacms-inline'
+import { InlineBlocks } from 'react-tinacms-inline'
 
 import {
   BodyCopy,
@@ -9,17 +8,19 @@ import {
   H2,
   heading_2_template,
   Image,
-  image_template,
+  createImageTemplate,
   Spacer,
   spacer_template,
 } from './blocks'
+import { useCMS } from 'tinacms'
 
 export default function IndexBlocks() {
+  const cms = useCMS()
   return (
     <>
       <InlineBlocks
         name="index_blocks"
-        blocks={INDEX_PAGE_BLOCKS}
+        blocks={createPageBlocks(cms)}
         className="index-blocks"
       />
       <style jsx global>{`
@@ -54,25 +55,27 @@ export default function IndexBlocks() {
   )
 }
 
-export const INDEX_PAGE_BLOCKS = {
-  heading_1: {
-    Component: H1,
-    template: heading_1_template,
-  },
-  heading_2: {
-    Component: H2,
-    template: heading_2_template,
-  },
-  body_copy: {
-    Component: BodyCopy,
-    template: body_copy_template,
-  },
-  image: {
-    Component: Image,
-    template: image_template,
-  },
-  spacer: {
-    Component: Spacer,
-    template: spacer_template,
-  },
+function createPageBlocks(cms) {
+  return {
+    heading_1: {
+      Component: H1,
+      template: heading_1_template,
+    },
+    heading_2: {
+      Component: H2,
+      template: heading_2_template,
+    },
+    body_copy: {
+      Component: BodyCopy,
+      template: body_copy_template,
+    },
+    image: {
+      Component: Image,
+      template: createImageTemplate(cms),
+    },
+    spacer: {
+      Component: Spacer,
+      template: spacer_template,
+    },
+  }
 }
