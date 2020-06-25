@@ -16,20 +16,6 @@ interface ImageBlockProps extends BlockProps {
   }
 }
 
-function provideGithubInfo() {
-  const cms = useCMS()
-  const workingRepository = cms.api.github.workingRepoFullName
-  const currentBranch = cms.api.github.branchName
-  console.log('ran')
-
-  return () => {
-    return {
-      workingRepository: cms.api.github.workingRepoFullName,
-      currentBranch: cms.api.github.branchName,
-    }
-  }
-}
-
 export function Image({ data, index }: ImageBlockProps) {
   const { align } = data.position
 
@@ -47,19 +33,9 @@ export function Image({ data, index }: ImageBlockProps) {
 
   const gridCol: GridColumnProps = getPosition(data.position)
 
-  function provideGithubInfo() {
-    const cms = useCMS()
-    const workingRepository = cms.api.github.workingRepoFullName
-    const currentBranch = cms.api.github.branchName
-
-    return () => {
-      return {
-        workingRepository: cms.api.github.workingRepoFullName,
-        currentBranch: cms.api.github.branchName,
-      }
-    }
-  }
-  const github = provideGithubInfo()
+  const cms = useCMS()
+  const workingRepository = cms.api.github.workingRepoFullName
+  const currentBranch = cms.api.github.branchName
 
   return (
     <>
@@ -69,8 +45,8 @@ export function Image({ data, index }: ImageBlockProps) {
             name="src"
             previewSrc={formValues => {
               const currentBlock = formValues.index_blocks[index].src
-              const repo = github()
-              return `https://raw.githubusercontent.com/${repo.workingRepository}/${repo.currentBranch}/public${currentBlock}`
+
+              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlock}`
             }}
             parse={filename => `/img/${filename}`}
             uploadDir={() => '/public/img/'}
@@ -102,53 +78,52 @@ export function Image({ data, index }: ImageBlockProps) {
   )
 }
 
-export const image_template = {
-  type: 'image',
-  label: 'Image',
-  defaultItem: {
-    _template: 'image',
-    src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
-    alt: '',
-    position: {
-      align: 'Right',
-      width: 'Large',
-    },
-  },
-  key: undefined,
-  fields: [
-    {
-      name: 'src',
-      label: 'Image',
-      component: 'image',
-      previewSrc: (formValues, input) => {
-        const github = provideGithubInfo()
-        const currentBlockImage =
-          formValues.index_blocks[getBlockIndex(input.field)].src
-        // const workingRepository = cms.api.github.workingRepoFullName
-        // const currentBranch = cms.api.github.branchName
-        return `https:raw.githubusercontent.com/${github().workingRepository}/${
-          github().currentBranch
-        }/public${currentBlockImage}`
+export function createImageTemplate(cms) {
+  return {
+    type: 'image',
+    label: 'Image',
+    defaultItem: {
+      _template: 'image',
+      src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
+      alt: '',
+      position: {
+        align: 'Right',
+        width: 'Large',
       },
-      parse: filename => `/img/${filename}`,
-      uploadDir: () => '/public/img/',
     },
-    {
-      name: 'alt',
-      label: 'Alt Text',
-      component: 'text',
-    },
-    {
-      name: 'position.width',
-      label: 'Width',
-      component: 'select',
-      options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
-    },
-    {
-      name: 'position.align',
-      label: 'Alignment',
-      component: 'select',
-      options: ['Left', 'Right', 'Center'],
-    },
-  ],
+    key: undefined,
+    fields: [
+      {
+        name: 'src',
+        label: 'Image',
+        component: 'image',
+        previewSrc: (formValues, input) => {
+          const currentBlockImage =
+            formValues.index_blocks[getBlockIndex(input.field)].src
+          const workingRepository = cms.api.github.workingRepoFullName
+          const currentBranch = cms.api.github.branchName
+          return `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
+        },
+        parse: filename => `/img/${filename}`,
+        uploadDir: () => '/public/img/',
+      },
+      {
+        name: 'alt',
+        label: 'Alt Text',
+        component: 'text',
+      },
+      {
+        name: 'position.width',
+        label: 'Width',
+        component: 'select',
+        options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
+      },
+      {
+        name: 'position.align',
+        label: 'Alignment',
+        component: 'select',
+        options: ['Left', 'Right', 'Center'],
+      },
+    ],
+  }
 }
