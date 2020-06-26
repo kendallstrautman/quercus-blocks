@@ -12,7 +12,7 @@ function BodyCopy({ data, index }: BlockProps) {
     <>
       <p className="block">
         <BlocksControls index={index}>
-          <InlineTextarea name="text" />
+          <InlineTextarea name="text" focusRing={false} />
         </BlocksControls>
       </p>
 

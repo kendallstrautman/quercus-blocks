@@ -8,7 +8,7 @@ function H1({ data, index }: BlockProps) {
     <>
       <h1 className="block">
         <BlocksControls index={index}>
-          <InlineTextarea name="text" />
+          <InlineTextarea name="text" focusRing={false} />
         </BlocksControls>
       </h1>
 
@@ -61,7 +61,7 @@ function H2({ data, index }: BlockProps) {
     <>
       <h2 className="block">
         <BlocksControls index={index}>
-          <InlineTextarea name="text" />
+          <InlineTextarea name="text" focusRing={false} />
         </BlocksControls>
       </h2>
 
