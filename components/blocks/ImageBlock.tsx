@@ -40,7 +40,11 @@ export function Image({ data, index }: ImageBlockProps) {
   return (
     <>
       <div className="block">
-        <BlocksControls index={index}>
+        <BlocksControls
+          index={index}
+          focusRing={{ offset: { x: 0, y: 0 }, borderRadius: 0 }}
+          insetControls
+        >
           <InlineImage
             name="src"
             previewSrc={formValues => {
@@ -53,7 +57,11 @@ export function Image({ data, index }: ImageBlockProps) {
             focusRing={false}
           >
             {props => {
-              return <img src={props?.previewSrc || data.src} alt={data.alt} />
+              return (
+                <div className="img--wrap">
+                  <img src={props?.previewSrc || data.src} alt={data.alt} />
+                </div>
+              )
             }}
           </InlineImage>
         </BlocksControls>
@@ -66,12 +74,16 @@ export function Image({ data, index }: ImageBlockProps) {
           width: ${getWidth()};
           transform: ${getTranslateX()};
         }
+        .img--wrap {
+          display: flex;
+        }
         img {
           object-fit: cover;
           width: 100%;
           min-height: 100%;
           padding-top: 0;
           padding-bottom: 0;
+          flex-grow: 1;
         }
       `}</style>
     </>
