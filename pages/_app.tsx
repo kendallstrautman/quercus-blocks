@@ -24,15 +24,9 @@ export default class Site extends App {
       apis: {
         github: client,
       },
-      media: {
-        store: new GithubMediaStore(client),
-      },
-      sidebar: {
-        hidden: true,
-      },
-      toolbar: {
-        hidden: !props.pageProps.preview,
-      },
+      media: new GithubMediaStore(client),
+      sidebar: false,
+      toolbar: props.pageProps.preview,
     })
   }
 
@@ -42,9 +36,8 @@ export default class Site extends App {
     return (
       <TinaProvider cms={this.cms}>
         <TinacmsGithubProvider
-          editMode={pageProps.preview}
-          enterEditMode={enterEditMode}
-          exitEditMode={exitEditMode}
+          onLogin={onLogin}
+          onLogout={onLogout}
           error={pageProps.error}
         >
           <Component {...pageProps} />
@@ -54,19 +47,22 @@ export default class Site extends App {
   }
 }
 
-const enterEditMode = () => {
+const onLogin = async () => {
   const token = localStorage.getItem('tinacms-github-token') || null
   const headers = new Headers()
+
   if (token) {
     headers.append('Authorization', 'Bearer ' + token)
   }
 
-  return fetch(`/api/preview`, { headers: headers }).then(() => {
-    window.location.href = window.location.pathname
-  })
+  const resp = await fetch(`/api/preview`, { headers: headers })
+  const data = await resp.json()
+
+  if (resp.status == 200) window.location.href = window.location.pathname
+  else throw new Error(data.message)
 }
 
-const exitEditMode = () => {
+const onLogout = () => {
   return fetch(`/api/reset-preview`).then(() => {
     window.location.reload()
   })

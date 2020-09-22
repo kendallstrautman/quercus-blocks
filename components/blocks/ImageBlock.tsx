@@ -47,12 +47,10 @@ export function Image({ data, index }: ImageBlockProps) {
         >
           <InlineImage
             name="src"
-            previewSrc={formValues => {
-              const currentBlock = formValues.index_blocks[index].src
-
-              return `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlock}`
-            }}
-            parse={filename => `/img/${filename}`}
+            previewSrc={async fieldValue =>
+              `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${fieldValue}`
+            }
+            parse={media => `/img/${media.filename}`}
             uploadDir={() => '/public/img/'}
             focusRing={false}
           >

@@ -1,16 +1,12 @@
-import { useGithubEditing } from 'react-tinacms-github'
+import { useCMS } from 'tinacms'
 
-interface EditLinkProps {
-  editMode: boolean
-}
-
-export default function EditLink({ editMode }: EditLinkProps) {
-  const github = useGithubEditing()
+export default function EditLink() {
+  const cms = useCMS()
 
   return (
     <>
-      <p onClick={editMode ? github.exitEditMode : github.enterEditMode}>
-        <a>{editMode ? 'Exit Edit Mode ✗' : 'Edit This Page ✐ '}</a>
+      <p onClick={cms.enabled ? cms.disable : cms.enable}>
+        <a>{cms.enabled ? 'Exit Edit Mode ✗' : 'Edit This Page ✐ '}</a>
       </p>
       <style jsx>{`
         p {
