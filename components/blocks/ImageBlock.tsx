@@ -34,8 +34,6 @@ export function Image({ data, index }: ImageBlockProps) {
   const gridCol: GridColumnProps = getPosition(data.position)
 
   const cms = useCMS()
-  const workingRepository = cms.api.github.workingRepoFullName
-  const currentBranch = cms.api.github.branchName
 
   return (
     <>
@@ -47,8 +45,8 @@ export function Image({ data, index }: ImageBlockProps) {
         >
           <InlineImage
             name="src"
-            previewSrc={async fieldValue =>
-              `https://raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${fieldValue}`
+            previewSrc={fieldValue =>
+              cms.media.previewSrc(`public${fieldValue}`)
             }
             parse={media => `/img/${media.filename}`}
             uploadDir={() => '/public/img/'}
@@ -57,7 +55,7 @@ export function Image({ data, index }: ImageBlockProps) {
             {props => {
               return (
                 <div className="img--wrap">
-                  <img src={props?.previewSrc || data.src} alt={data.alt} />
+                  <img src={props.src} alt={data.alt} />
                 </div>
               )
             }}
