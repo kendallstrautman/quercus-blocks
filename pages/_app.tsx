@@ -24,6 +24,7 @@ export default class Site extends App {
       apis: {
         github: client,
       },
+      /** TODO: add NextGithubMediaStore */
       media: new GithubMediaStore(client),
       sidebar: false,
       toolbar: props.pageProps.preview,
