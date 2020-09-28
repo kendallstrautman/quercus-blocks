@@ -1,11 +1,5 @@
-import { useCMS, TinaCMS } from 'tinacms'
 import { BlocksControls, InlineImage } from 'react-tinacms-inline'
-import {
-  getPosition,
-  BlockPositionProps,
-  GridColumnProps,
-  getBlockIndex,
-} from '../../utils'
+import { getPosition, BlockPositionProps, GridColumnProps } from '../../utils'
 import { BlockProps } from './BodyCopyBlock'
 
 interface ImageBlockProps extends BlockProps {
@@ -33,8 +27,6 @@ export function Image({ data, index }: ImageBlockProps) {
 
   const gridCol: GridColumnProps = getPosition(data.position)
 
-  const cms = useCMS()
-
   return (
     <>
       <div className="block">
@@ -45,21 +37,12 @@ export function Image({ data, index }: ImageBlockProps) {
         >
           <InlineImage
             name="src"
-            previewSrc={fieldValue =>
-              cms.media.previewSrc(`public${fieldValue}`)
-            }
             parse={media => `/img/${media.filename}`}
             uploadDir={() => '/public/img/'}
             focusRing={false}
-          >
-            {props => {
-              return (
-                <div className="img--wrap">
-                  <img src={props.src} alt={data.alt} />
-                </div>
-              )
-            }}
-          </InlineImage>
+            className="img--wrap"
+            alt={data.alt}
+          />
         </BlocksControls>
       </div>
       <style jsx>{`
@@ -86,55 +69,46 @@ export function Image({ data, index }: ImageBlockProps) {
   )
 }
 
-export function createImageBlock(cms: TinaCMS) {
-  return {
-    Component: Image,
-    template: {
-      type: 'image',
-      label: 'Image',
-      defaultItem: {
-        _template: 'image',
-        src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
-        alt: '',
-        position: {
-          align: 'Right',
-          width: 'Large',
-        },
+export const imageBlock = {
+  Component: Image,
+  template: {
+    type: 'image',
+    label: 'Image',
+    defaultItem: {
+      _template: 'image',
+      src: '/img/tomas-robertson-tqe-NKrSXTw-unsplash__SM.jpg',
+      alt: '',
+      position: {
+        align: 'Right',
+        width: 'Large',
       },
-      key: undefined,
-      fields: [
-        {
-          name: 'src',
-          label: 'Image',
-          component: 'image',
-          previewSrc: (formValues, input) => {
-            const currentBlockImage =
-              formValues.index_blocks[getBlockIndex(input.field)].src
-            const workingRepository = cms.api.github.workingRepoFullName
-            const currentBranch = cms.api.github.branchName
-            return `https:raw.githubusercontent.com/${workingRepository}/${currentBranch}/public${currentBlockImage}`
-          },
-          parse: filename => `/img/${filename}`,
-          uploadDir: () => '/public/img/',
-        },
-        {
-          name: 'alt',
-          label: 'Alt Text',
-          component: 'text',
-        },
-        {
-          name: 'position.width',
-          label: 'Width',
-          component: 'select',
-          options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
-        },
-        {
-          name: 'position.align',
-          label: 'Alignment',
-          component: 'select',
-          options: ['Left', 'Right', 'Center'],
-        },
-      ],
     },
-  }
+    key: undefined,
+    fields: [
+      {
+        name: 'src',
+        label: 'Image',
+        component: 'image',
+        parse: filename => `/img/${filename}`,
+        uploadDir: () => '/public/img/',
+      },
+      {
+        name: 'alt',
+        label: 'Alt Text',
+        component: 'text',
+      },
+      {
+        name: 'position.width',
+        label: 'Width',
+        component: 'select',
+        options: ['Narrow', 'Medium', 'Wide', 'Fullwidth'],
+      },
+      {
+        name: 'position.align',
+        label: 'Alignment',
+        component: 'select',
+        options: ['Left', 'Right', 'Center'],
+      },
+    ],
+  },
 }
