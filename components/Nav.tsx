@@ -1,14 +1,15 @@
 import React from 'react'
+import { useCMS } from 'tinacms'
 import EditLink from './EditLink'
 import Chevron from './icons/Chevron'
 
 interface NavProps {
-  editMode: boolean
   infoBlurb: string
 }
 
-export default function Nav({ editMode, infoBlurb }: NavProps) {
+export default function Nav({ infoBlurb }: NavProps) {
   const [isOpen, setIsOpen] = React.useState(false)
+  const cms = useCMS()
 
   function handleOpenCloseNav(e) {
     e.preventDefault()
@@ -22,7 +23,7 @@ export default function Nav({ editMode, infoBlurb }: NavProps) {
           <h2>{infoBlurb}</h2>
         </div>
         <span className="navItems">
-          <EditLink editMode={editMode} />
+          <EditLink />
           <a onClick={handleOpenCloseNav} className="info-link">
             <Chevron pointsUp={isOpen} />
           </a>
@@ -34,7 +35,7 @@ export default function Nav({ editMode, infoBlurb }: NavProps) {
           width: 100%;
           height: 100vh;
           position: fixed;
-          ${editMode ? `top: 62px;` : `top: 0;`}
+          ${cms.enabled ? `top: 62px;` : `top: 0;`}
           background-color: var(--orange);
           transition: transform 350ms ease-in-out;
           ${isOpen

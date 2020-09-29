@@ -3,7 +3,6 @@ import Nav from './Nav'
 import Footer from './Footer'
 
 interface LayoutProps {
-  editMode: boolean
   children?: any
   infoBlurb: string
   siteTitle: string
@@ -14,7 +13,7 @@ export default function Layout(props: LayoutProps) {
   return (
     <section className="layout">
       <Meta siteTitle={props.siteTitle} description={props.siteDescription} />
-      <Nav editMode={props.editMode} infoBlurb={props.infoBlurb} />
+      <Nav infoBlurb={props.infoBlurb} />
       {props.children}
       <Footer />
       <style jsx global>

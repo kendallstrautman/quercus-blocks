@@ -38,7 +38,6 @@ function Index(props: IndexProps) {
 
   return (
     <Layout
-      editMode={preview}
       siteTitle={title}
       siteDescription={description}
       infoBlurb={infoBlurb}
