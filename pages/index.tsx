@@ -15,7 +15,6 @@ import Layout from '../components/Layout'
 import IndexBlocks from '../components/IndexBlocks'
 
 interface IndexProps {
-  preview: boolean
   repoFullName: string
   branch: string
   file: GithubFile<any> | null
@@ -26,7 +25,7 @@ interface IndexProps {
 }
 
 function Index(props: IndexProps) {
-  const { file, preview, title, description, infoBlurb } = props
+  const { file, title, description, infoBlurb } = props
   const formOptions = {
     label: 'Index Page',
     fields: [{ name: 'title', component: 'text' }],
@@ -53,7 +52,7 @@ function Index(props: IndexProps) {
 
 export default Index
 
-export async function getStaticProps<GetStaticProps>({ preview, previewData }) {
+export async function getStaticProps({ preview, previewData }) {
   const siteMeta = await import(`../data/config.json`)
 
   if (preview) {
