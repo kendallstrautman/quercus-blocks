@@ -40,13 +40,17 @@ export function Image({ data, index }: ImageBlockProps) {
             parse={media => `/img/${media.filename}`}
             uploadDir={() => '/public/img/'}
             focusRing={false}
-            className="img--wrap"
-            alt={data.alt}
-          />
+          >
+            {p => (
+              <div className="img--wrap">
+                <img src={p.src} alt={data.alt} />
+              </div>
+            )}
+          </InlineImage>
         </BlocksControls>
       </div>
       <style jsx>{`
-        div {
+        div.block {
           grid-column-start: ${gridCol.colStart};
           grid-column-end: ${gridCol.colEnd};
           grid-row-start: ${index + 1};
