@@ -4,7 +4,7 @@
   "index_blocks": [
     {
       "_template": "heading_1",
-      "text": "Wherever I sat, there I might live, and the landscape radiated from me accordingly.",
+      "text": "Wherever I sat, there I might live, and the landscape radiated from me accordingly right here.",
       "position": {
         "width": "Wide",
         "align": "Left"
@@ -20,6 +20,14 @@
       "position": {
         "width": "Narrow",
         "align": "Right"
+      }
+    },
+    {
+      "_template": "heading_2",
+      "text": "Wherever I sat, there I might live, and the landscape radiated from me accordingly.",
+      "position": {
+        "width": "Narrow",
+        "align": "Left"
       }
     },
     {
